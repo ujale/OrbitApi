@@ -1,0 +1,39 @@
+{
+	"id": "a91c9e38-f656-441d-93c5-ce2f88f97076",
+	"name": "Orbit Partner API",
+	"values": [
+		{
+			"key": "PartnerToken",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwczovL3Nzby50ZXN0LnZnZ2Rldi5jb20vaWRlbnRpdHkiLCJhdWQiOiJodHRwczovL3Nzby50ZXN0LnZnZ2Rldi5jb20vaWRlbnRpdHkvcmVzb3VyY2VzIiwiZXhwIjoxNTk2NjQyMjc0LCJuYmYiOjE1OTY2Mzg2NzQsImNsaWVudF9pZCI6InZpZ2lwYXkub3JiaXQiLCJzY29wZSI6WyJlbWFpbCIsImlkZW50aXR5LXNlcnZlci1hcGkiLCJvcGVuaWQiLCJwcm9maWxlIiwicm9sZXMiXSwic3ViIjoiNzRmYTBjOTEtZjNhZC00NjU1LWFhZWMtZDdkNmQ0ZDJhOTU5IiwiYXV0aF90aW1lIjoxNTk2NjM4Njc0LCJpZHAiOiJpZHNydiIsInByZWZlcnJlZF91c2VybmFtZSI6Imd1dGVtQHlvcG1haWwuY29tIiwiZW1haWwiOiJndXRlbUB5b3BtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjoidHJ1ZSIsInBob25lX251bWJlciI6IjA4MDExMTExMTExIiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjoiZmFsc2UiLCJ3ZWIuZWJpcHMudXNlci5yb2xlIjoiY2xpZW50YWRtaW4iLCJnaXZlbl9uYW1lIjoiUmVzdCIsImZhbWlseV9uYW1lIjoiRnVsbHkiLCJhcHBsaWNhdGlvbiI6WyJ3ZWIuZWJpcHMudXNlciIsInZpZ2lwYXkub3JiaXQiXSwidmlnaXBheS5vcmJpdC5yb2xlIjoiY2xpZW50YWRtaW4iLCJhbXIiOlsicGFzc3dvcmQiXX0.ZdCcMsNeymOaddPDbq16wKzVf5SwcT__De7Pn48TODcmuyD7Q2PcK3shxMjkLYoC1d_UcS03m0gQoJuLtlERvVNQ0jxeVo_5y0AGDsnY808Jf3bZ-7Vk0wghN0uFloES5BUziJJRmnVu7rphE7I3geyVDoRiej71kHff9vcvvsr_3wWPM53t8o3bIVI4wGZZgJUL_EJX3gAWL_C3zH7LvZFcMp6mNZkd_qO_r5onQxULWI2kwohUdOKmkVREZQLsd0jD03xdG4RhYcJ00SqgzdB4I3aaK2Z1X_n6VqhggryPBO9cWuFf5X8PNUGdv9qN2siCpfPwkMv9-1y30ghpJQ",
+			"enabled": true
+		},
+		{
+			"key": "application",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "code",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "email",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "VGGAdminToken",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "userreference",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2020-12-16T06:39:59.677Z",
+	"_postman_exported_using": "Postman/7.36.0"
+}

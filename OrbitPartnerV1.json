@@ -14,7 +14,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "6a333ef8-048f-4b81-90e4-8f7d9ba3497d",
 								"exec": [
 									"//Set access token as environment variable\r",
 									"var body = JSON.parse(responseBody);\r",
@@ -27,7 +27,7 @@
 									"});\r",
 									""
 								],
-								"id": "6a333ef8-048f-4b81-90e4-8f7d9ba3497d"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -36,7 +36,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"userName\": \"udeme.bassey@venturegardengroup.com\",\r\n  \"password\": \"P@ssw0rd1\"\r\n}",
+							"raw": "{\r\n  \"userName\": \"udeme.bassey@venturegardengroup.com\",\r\n  \"password\": \"VWRlbWUxMjNA\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -67,7 +67,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "637794d1-43c5-46af-9bf5-643f8424b549",
 								"exec": [
 									"//Set access token as environment variable\r",
 									"var body = JSON.parse(responseBody);\r",
@@ -77,7 +77,7 @@
 									"});\r",
 									""
 								],
-								"id": "637794d1-43c5-46af-9bf5-643f8424b549"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -93,7 +93,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"gutem@yopmail.com\",\r\n  \"password\": \"P@ssw0rd\"\r\n}",
+							"raw": "{\r\n  \"email\": \"gutem@yopmail.com\",\r\n  \"password\": \"UEBzc3cwcmQ=\"\r\n}",
 							"options": {
 								"raw": {}
 							}
@@ -123,7 +123,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "e39047e9-1cfa-4e31-8eee-ca6c96a98eff",
 								"exec": [
 									"\r",
 									"pm.test(\"Status code is 400\", function () {\r",
@@ -133,7 +133,7 @@
 									"    pm.expect(pm.response.text()).to.include(\"This partner is not Active\");\r",
 									"});"
 								],
-								"id": "e39047e9-1cfa-4e31-8eee-ca6c96a98eff"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -149,7 +149,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"ywet12@yopmail.com\",\r\n  \"password\": \"P@ssw0rd1\"\r\n}",
+							"raw": "{\r\n  \"email\": \"ywet12@yopmail.com\",\r\n  \"password\": \"UEBzc3cwcmQx\"\r\n}",
 							"options": {
 								"raw": {}
 							}
@@ -179,14 +179,17 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "e95066cf-8393-48e1-98c6-efeb751d67be",
 								"exec": [
 									"\r",
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"This partner has not been approved\");\r",
 									"});"
 								],
-								"id": "e95066cf-8393-48e1-98c6-efeb751d67be"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -202,7 +205,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"slings@yopmail.com\",\r\n  \"password\": \"P@ssw0rd1\"\r\n}",
+							"raw": "{\r\n  \"email\": \"slings@yopmail.com\",\r\n  \"password\": \"UEBzc3cwcmQx\"\r\n}",
 							"options": {
 								"raw": {}
 							}
@@ -232,7 +235,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "8b4dd61e-c12c-4bc6-b8a0-2194d4ee7bf6",
 								"exec": [
 									"\r",
 									"pm.test(\"Status code is 400\", function () {\r",
@@ -242,7 +245,7 @@
 									"    pm.expect(pm.response.text()).to.include(\"This partner has not been approved\");\r",
 									"});"
 								],
-								"id": "8b4dd61e-c12c-4bc6-b8a0-2194d4ee7bf6"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -258,7 +261,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"tweet12@yopmail.com\",\r\n  \"password\": \"P@ssw0rd1\"\r\n}",
+							"raw": "{\r\n  \"email\": \"tweet12@yopmail.com\",\r\n  \"password\": \"UEBzc3cwcmQx\"\r\n}",
 							"options": {
 								"raw": {}
 							}
@@ -281,6 +284,144 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Encode password (admin)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "06adc4b8-6611-41d5-ac96-015c8977b009",
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Base 64 encoded successfully\");\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://orbitadmin.test.vggdev.com/api/Utils/EncodeBase64String?InputString=P@ssw0rd1.",
+							"protocol": "https",
+							"host": [
+								"orbitadmin",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"Utils",
+								"EncodeBase64String"
+							],
+							"query": [
+								{
+									"key": "InputString",
+									"value": "P@ssw0rd1."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encode password (client)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2b9bb4e9-80d7-47ab-b88f-81864db995aa",
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Base 64 encoded successfully\");\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://orbitclient.test.vggdev.com/api/Utils/EncodeBase64String?InputString=P@ssw0rd2",
+							"protocol": "https",
+							"host": [
+								"orbitclient",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"Utils",
+								"EncodeBase64String"
+							],
+							"query": [
+								{
+									"key": "InputString",
+									"value": "P@ssw0rd2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Decode password (client)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b8ea03a1-af4c-47a2-87d3-f9a754e98706",
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Base 64 decoded successfully\");\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://orbitclient.test.vggdev.com/api/Utils/DecodeBase64String?Base64String=UEBzc3cwcmQy",
+							"protocol": "https",
+							"host": [
+								"orbitclient",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"Utils",
+								"DecodeBase64String"
+							],
+							"query": [
+								{
+									"key": "Base64String",
+									"value": "UEBzc3cwcmQy"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -294,7 +435,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "c6ad973b-a268-4915-9529-c3d141020486",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -305,13 +446,13 @@
 									"\r",
 									""
 								],
-								"id": "c6ad973b-a268-4915-9529-c3d141020486"
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
-								"type": "text/javascript",
+								"id": "bab92cab-1332-4804-bf5d-929bf2ad59ff",
 								"exec": [
 									"//Generate random name\r",
 									"function xter(length) {\r",
@@ -331,7 +472,7 @@
 									"postman.setEnvironmentVariable(\"code\", xter(5));\r",
 									""
 								],
-								"id": "bab92cab-1332-4804-bf5d-929bf2ad59ff"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -350,7 +491,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"applicationName\": \"{{application}}\",\r\n  \"description\": \"describe\",\r\n  \"firstName\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\",\r\n  \"email\": \"{{$randomFirstName}}@yopmail.com\",\r\n  \"password\": \"P@ssw0rd\",\r\n  \"mobileNumber\": \"09123498780\",\r\n  \"code\": \"{{code}}\"\r\n}",
+							"raw": "{\r\n  \"applicationName\": \"{{application}}\",\r\n  \"description\": \"describe\",\r\n  \"firstName\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\",\r\n  \"email\": \"{{$randomFirstName}}@yopmail.com\",\r\n  \"password\": \"P@ssword1\",\r\n  \"mobileNumber\": \"09123498780\",\r\n  \"code\": \"{{code}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -381,14 +522,14 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "17594b0a-dca6-4ad2-b327-53096ae6a680",
 								"exec": [
 									"pm.test(\"Status code is 404\", function () {\r",
 									"    pm.response.to.have.status(404);\r",
 									"});\r",
 									""
 								],
-								"id": "17594b0a-dca6-4ad2-b327-53096ae6a680"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -495,7 +636,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "63ee0110-e5f8-4f55-b525-a290d4055432",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
@@ -504,7 +645,7 @@
 									"    pm.expect(pm.response.text()).to.include(\"The code/email already exists on our records\");\r",
 									"});"
 								],
-								"id": "63ee0110-e5f8-4f55-b525-a290d4055432"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -554,7 +695,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "c6748694-5685-431e-805e-ec73c92b6c30",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
@@ -563,7 +704,7 @@
 									"    pm.expect(pm.response.text()).to.include(\"email already exists on our records\");\r",
 									"});"
 								],
-								"id": "c6748694-5685-431e-805e-ec73c92b6c30"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -613,7 +754,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "120904b9-1646-4e24-bef2-110e35441501",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
@@ -623,7 +764,7 @@
 									"    pm.expect(pm.response.text()).to.include(\"special characters are not  allowed in Application Name.\");\r",
 									"});"
 								],
-								"id": "120904b9-1646-4e24-bef2-110e35441501"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -968,7 +1109,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "ea86a5a3-5cf8-490e-8565-86e382e06156",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
@@ -977,7 +1118,7 @@
 									"    pm.expect(pm.response.text()).to.include(\"Code is required; Code should be atleast 2 characters; Code must be between 3 and 5 char\");\r",
 									"});"
 								],
-								"id": "ea86a5a3-5cf8-490e-8565-86e382e06156"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -996,7 +1137,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"applicationName\": \"ly time\",\r\n  \"description\": \"describe\",\r\n  \"firstName\": \"tyfjE\",\r\n  \"lastName\": \"tyfjE\",\r\n  \"email\": \"uhjk12@yopmail.com\",\r\n  \"password\": \"gfgtrtyftrdcdPhtbfygfgtrtyftrdcdPhtbfygfgtrtyftrdcdPhtbfygfgtrtyftrdcdPhtbfygfgtrtyftrdcdPhtbfygfgtrtyftrdcdPhtbfygfgtrtyftrdcdPhtbfygfgtrtyftrdcdPhtbfygfgtrtyftrdcdPhtbfy9.\",\r\n  \"mobileNumber\": \"09123498780\",\r\n  \"code\": \"\"\r\n}",
+							"raw": "{\r\n  \"applicationName\": \"ly time\",\r\n  \"description\": \"describe\",\r\n  \"firstName\": \"tyfjE\",\r\n  \"lastName\": \"tyfjE\",\r\n  \"email\": \"uhjk12@yopmail.com\",\r\n  \"password\": \"grdcdPhtbfy9.\",\r\n  \"mobileNumber\": \"09123498780\",\r\n  \"code\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1081,7 +1222,7 @@
 					"response": []
 				},
 				{
-					"name": "Onboard Partner (no description)",
+					"name": "Onboard Partner (application name < 6)",
 					"event": [
 						{
 							"listen": "test",
@@ -1092,7 +1233,7 @@
 									"    pm.response.to.have.status(400);\r",
 									"});\r",
 									"pm.test(\"Body contains string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"Code is required; Code should be atleast 2 characters; Code must be between 3 and 5 char; The Email field is required.; The LastName field is required.; The Password field is required.; The FirstName field is required.; The MobileNumber field is required.; The ApplicationName field is required.; Application Name should be more than 6 characters\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"Application Name should be more than 6 characters\");\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -1114,7 +1255,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"applicationName\": \"lyimenb\",\r\n  \"description\": \"\",\r\n  \"firstName\": \"Don\",\r\n  \"lastName\": \"Fly\",\r\n  \"email\": \"ted2@yopmail.com\",\r\n  \"password\": \"P@ssw0rd\",\r\n  \"mobileNumber\": \"09123498780\",\r\n  \"code\": \"Erm\"\r\n}",
+							"raw": "{\r\n  \"applicationName\": \"Trenb\",\r\n  \"description\": \"\",\r\n  \"firstName\": \"Don\",\r\n  \"lastName\": \"Fly\",\r\n  \"email\": \"tedre2@yopmail.com\",\r\n  \"password\": \"P@ssw0rd\",\r\n  \"mobileNumber\": \"09123498780\",\r\n  \"code\": \"ErND\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1151,7 +1292,7 @@
 									"    pm.response.to.have.status(400);\r",
 									"});\r",
 									"pm.test(\"Body contains string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"Code is required; Code should be atleast 2 characters; Code must be between 3 and 5 char; The Email field is required.; The LastName field is required.; The Password field is required.; The FirstName field is required.; The MobileNumber field is required.; The ApplicationName field is required.; Application Name should be more than 6 characters\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"The LastName field is required.\");\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -1173,7 +1314,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"applicationName\": \"lyimenb\",\r\n  \"description\": \"\",\r\n  \"firstName\": \"Don\",\r\n  \"lastName\": \"Fly\",\r\n  \"email\": \"ted2@yopmail.com\",\r\n  \"password\": \"P@ssw0rd\",\r\n  \"mobileNumber\": \"09123498780\",\r\n  \"code\": \"Erm\"\r\n}",
+							"raw": "{\r\n  \"applicationName\": \"lyenb5\",\r\n  \"description\": \"test\",\r\n  \"firstName\": \"ytrd\",\r\n  \"lastName\": \"\",\r\n  \"email\": \"toled2@yopmail.com\",\r\n  \"password\": \"P@ssw0rd\",\r\n  \"mobileNumber\": \"09123498780\",\r\n  \"code\": \"rlm\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1193,6 +1334,121 @@
 								"api",
 								"Partners",
 								"Create"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Change/Forgot/Reset Password",
+			"item": [
+				{
+					"name": "Reset Password (valid)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"9982ac7e-0c35-4147-9b7b-86241fcbe158\",\r\n  \"token\": \"Rh7QjLmTCDpigNA7qMXsyEeowz3PBPBg6p3Y4SIqEA3/brgo6MNUPlWcIy2mvC3FXt3FJwgNGBZfZr6ywj2xfxEMQCUGGFZXO4pV0INifzINICGqzHi26kyYhd9BEXDyinmIp3kWGvo//RR64gkW4+TpY0OscId+B/DBtZhNwBi/7x5DP1nwKiqiLNM/MM/cHZ/rKA==\",\r\n  \"newPassword\": \"UEBzc3cwcmQ=\",\r\n  \"confirmPassword\": \"UEBzc3cwcmQ=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://orbitclient.test.vggdev.com/api/v1/Account/ResetPassword",
+							"protocol": "https",
+							"host": [
+								"orbitclient",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Account",
+								"ResetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password (valid)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"Michale@yopmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://orbitclient.test.vggdev.com/api/v1/Account/ForgotPassword",
+							"protocol": "https",
+							"host": [
+								"orbitclient",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Account",
+								"ForgotPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password (valid)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwczovL3Nzby50ZXN0LnZnZ2Rldi5jb20vaWRlbnRpdHkiLCJhdWQiOiJodHRwczovL3Nzby50ZXN0LnZnZ2Rldi5jb20vaWRlbnRpdHkvcmVzb3VyY2VzIiwiZXhwIjoxNjA0NjU5NjI1LCJuYmYiOjE2MDQ2NTYwMjUsImNsaWVudF9pZCI6InZpZ2lwYXkub3JiaXQiLCJzY29wZSI6WyJlbWFpbCIsImlkZW50aXR5LXNlcnZlci1hcGkiLCJvcGVuaWQiLCJwcm9maWxlIiwicm9sZXMiXSwic3ViIjoiOTk4MmFjN2UtMGMzNS00MTQ3LTliN2ItODYyNDFmY2JlMTU4IiwiYXV0aF90aW1lIjoxNjA0NjU2MDI1LCJpZHAiOiJpZHNydiIsInByZWZlcnJlZF91c2VybmFtZSI6Ik1pY2hhbGVAeW9wbWFpbC5jb20iLCJlbWFpbCI6Ik1pY2hhbGVAeW9wbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6InRydWUiLCJwaG9uZV9udW1iZXIiOiIwODAxMTExMTExMSIsInBob25lX251bWJlcl92ZXJpZmllZCI6ImZhbHNlIiwid2ViLmViaXBzLnVzZXIucm9sZSI6ImNsaWVudGFkbWluIiwiZ2l2ZW5fbmFtZSI6IlR5bGVyIiwiZmFtaWx5X25hbWUiOiJXZWltYW5uIiwiYXBwbGljYXRpb24iOlsid2ViLmViaXBzLnVzZXIiLCJ2aWdpcGF5Lm9yYml0Il0sInZpZ2lwYXkub3JiaXQucm9sZSI6ImNsaWVudGFkbWluIiwiYW1yIjpbInBhc3N3b3JkIl19.KADL0_0wUJTYBH1RK4ZpDCJk7onOVmbQX57C704kQC2P2gVGxIP1auoHo16IP05i9_T7CZKZtxF_vMVRk3o0t4M6UgvQXnc5_traeyEmv3cMhUziDIpRRIGHQjjdKc-Iduw5ykx-tq07hFziU4SUuxS7i78ql2vkD1dzHOJV1qzpj8NkhBRCQJMtA7ndt-WjAISlCQy40da1kdfwpDU_LR12l6sxHpNh6-t1zR5GgNYUVmEoc0OH36iXkWEIQser6UxVU3pbCm_CI0DXIrdiiGzE6ULHTlh1ztZbB1_dhfZIj_fZP4B1hh9HYWcNH3cTt-VbOz4phdBGWedXdQXdgg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"currentPassword\": \"UEBzc3cwcmQ=\",\r\n  \"newPassword\": \"UEBzc3cwcmQy\",\r\n  \"confirmPassword\": \"UEBzc3cwcmQy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://orbitclient.test.vggdev.com/api/v1/Account/ChangePassword",
+							"protocol": "https",
+							"host": [
+								"orbitclient",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Account",
+								"ChangePassword"
 							]
 						}
 					},
@@ -1283,6 +1539,84 @@
 					"response": []
 				},
 				{
+					"name": "Approve Partner (valid)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a9fa5603-950d-489a-a38c-23115391be27",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Partner already Approved\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{VGGAdminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "SecurityTestDocumentId",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://orbitadmin.test.vggdev.com/api/Partners/Approve?partnerId=10290",
+							"protocol": "https",
+							"host": [
+								"orbitadmin",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"Partners",
+								"Approve"
+							],
+							"query": [
+								{
+									"key": "partnerId",
+									"value": "10290"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Approve Partner (non existing Id)",
 					"event": [
 						{
@@ -1366,7 +1700,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "eac7c71b-cd4d-4762-848f-c130dffa5837",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
@@ -1376,7 +1710,7 @@
 									"    pm.expect(pm.response.text()).to.include(\"Partner already Approved\");",
 									"});"
 								],
-								"id": "eac7c71b-cd4d-4762-848f-c130dffa5837"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -1415,7 +1749,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://orbitadmin.test.vggdev.com/api/Partners/Approve?partnerId=10053",
+							"raw": "https://orbitadmin.test.vggdev.com/api/Partners/Approve?partnerId=10281",
 							"protocol": "https",
 							"host": [
 								"orbitadmin",
@@ -1431,7 +1765,7 @@
 							"query": [
 								{
 									"key": "partnerId",
-									"value": "10053"
+									"value": "10281"
 								}
 							]
 						}
@@ -1673,6 +2007,81 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Reject Partner (no details)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6531df86-2545-4caf-b9c0-536f0761a568",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{VGGAdminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "SecurityTestDocumentId",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://orbitadmin.test.vggdev.com/api/Partners/Reject?partnerId=10289",
+							"protocol": "https",
+							"host": [
+								"orbitadmin",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"Partners",
+								"Reject"
+							],
+							"query": [
+								{
+									"key": "partnerId",
+									"value": "10289"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -1680,6 +2089,44 @@
 		{
 			"name": "Profile Account",
 			"item": [
+				{
+					"name": "Set Account lookup to NIP on banks Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2b4f0312-7de3-4d59-b05a-334466f6c50f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ebipsbank.test.vggdev.com/api/BankAccounts/SwitchDefaultLookupBank/1125",
+							"protocol": "http",
+							"host": [
+								"ebipsbank",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"BankAccounts",
+								"SwitchDefaultLookupBank",
+								"1125"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "Profile Debit Account",
 					"event": [
@@ -1689,8 +2136,11 @@
 								"id": "ff1b4685-22dc-43df-b2f4-3fc228f48a99",
 								"exec": [
 									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Account Number already exists for this Partner\");\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -1719,7 +2169,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"1005817941\",\r\n  \"accountName\": \"ORBIT TEST ACCOUNT\",\r\n  \"bankId\": 22,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 9\r\n}",
+							"raw": "{\r\n  \"accountNumber\": \"6170185339\",\r\n  \"accountName\": \"ORBIT TEST ACCOUNT\",\r\n  \"bankId\": 5,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 10\r\n}",
 							"options": {
 								"raw": {}
 							}
@@ -1816,8 +2266,8 @@
 								"id": "8a504978-1dde-4724-a968-9d5cb4e21f86",
 								"exec": [
 									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -2127,71 +2577,6 @@
 					"response": []
 				},
 				{
-					"name": "Profile Debit Account(invalid account name)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7885b7c1-c587-467b-b250-7b8dcd7cd821",
-								"exec": [
-									"\r",
-									"pm.test(\"Status code is 400\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});\r",
-									"pm.test(\"Message matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"Account Name is required; Account Name should be at least 6 characters\");\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{PartnerToken}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"1005847601\",\r\n  \"accountName\": \"421683109@&^*\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 8\r\n}",
-							"options": {
-								"raw": {}
-							}
-						},
-						"url": {
-							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/Create",
-							"protocol": "https",
-							"host": [
-								"orbitclient",
-								"test",
-								"vggdev",
-								"com"
-							],
-							"path": [
-								"api",
-								"PartnerAccounts",
-								"Create"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Profile Debit Account(no comment)",
 					"event": [
 						{
@@ -2233,7 +2618,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"1005847601\",\r\n  \"accountName\": \"tester test\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"\",\r\n  \"providerGatewayId\": 8\r\n}",
+							"raw": "{\r\n  \"accountNumber\": \"0239912010\",\r\n  \"accountName\": \"tester test\",\r\n  \"bankId\": 7,\r\n  \"comment\": \"test\",\r\n  \"providerGatewayId\": 1\r\n}",
 							"options": {
 								"raw": {}
 							}
@@ -2333,9 +2718,7 @@
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
 									"});\r",
-									"pm.test(\"Message matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"Debit account lookup failed\");\r",
-									"});"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -2399,7 +2782,7 @@
 									"    pm.response.to.have.status(400);\r",
 									"});\r",
 									"pm.test(\"Message matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"Provider Gateway is required is invalid\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"Provider Gateway is required\");\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -2450,136 +2833,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Profile Debit Account(incomplete fields-no comment)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "98f97bba-e4d7-4bda-940d-0c50e7d13859",
-								"exec": [
-									"\r",
-									"pm.test(\"Status code is 400\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});\r",
-									"pm.test(\"Message matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"Provider Gateway is required is invalid\");\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{PartnerToken}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"1005847601\",\r\n  \"accountName\": \"tester test\",\r\n  \"bankId\": 19,\r\n  \"providerGatewayId\": 8\r\n}",
-							"options": {
-								"raw": {}
-							}
-						},
-						"url": {
-							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/Create",
-							"protocol": "https",
-							"host": [
-								"orbitclient",
-								"test",
-								"vggdev",
-								"com"
-							],
-							"path": [
-								"api",
-								"PartnerAccounts",
-								"Create"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Profile Debit Account(additional fields-reason)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "31a01a52-6856-4a98-a5f5-a6f8191d37b5",
-								"exec": [
-									"\r",
-									"pm.test(\"Status code is 400\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});\r",
-									"pm.test(\"Message matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"Provider Gateway is required is invalid\");\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{PartnerToken}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"accountNumber\": \"1005847601\",\r\n  \"accountName\": \"tester test\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"test\",\r\n  \"providerGatewayId\": 8,\r\n  \"reason\": 7\r\n}",
-							"options": {
-								"raw": {}
-							}
-						},
-						"url": {
-							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/Create",
-							"protocol": "https",
-							"host": [
-								"orbitclient",
-								"test",
-								"vggdev",
-								"com"
-							],
-							"path": [
-								"api",
-								"PartnerAccounts",
-								"Create"
-							]
-						}
-					},
-					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -2607,7 +2860,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ebipsbank.test.vggdev.com/api/BankAccounts/SwitchDefaultLookupBank/1203",
+							"raw": "http://ebipsbank.test.vggdev.com/api/BankAccounts/SwitchDefaultLookupBank/1125",
 							"protocol": "http",
 							"host": [
 								"ebipsbank",
@@ -2619,14 +2872,14 @@
 								"api",
 								"BankAccounts",
 								"SwitchDefaultLookupBank",
-								"1203"
+								"1125"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Payout (valid) Copy",
+					"name": "Payout (valid)",
 					"event": [
 						{
 							"listen": "test",
@@ -2731,7 +2984,7 @@
 									"});",
 									"",
 									"pm.test(\"Body contains string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"Record found\");",
+									"    pm.expect(pm.response.text()).to.include(\"Successful\");",
 									"});",
 									"pm.test(\"transactionStatus is\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"Failed\");",
@@ -2755,7 +3008,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://orbitclient.test.vggdev.com/api/PartnerPayment/TransactionByUserReference?UserReference=6800531",
+							"raw": "https://orbitclient.test.vggdev.com/api/PartnerPayment/TransactionByUserReference?UserReference=5668428",
 							"protocol": "https",
 							"host": [
 								"orbitclient",
@@ -2771,7 +3024,7 @@
 							"query": [
 								{
 									"key": "UserReference",
-									"value": "6800531"
+									"value": "5668428"
 								}
 							]
 						}
@@ -3035,13 +3288,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "10f9ca2a-2084-43b1-b621-79bba1ec85e5",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});"
 								],
-								"id": "10f9ca2a-2084-43b1-b621-79bba1ec85e5"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3059,7 +3312,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://orbitadmin.test.vggdev.com/api/Partners/Deactivate?partnerId=10093",
+							"raw": "https://orbitadmin.test.vggdev.com/api/Partners/Deactivate?partnerId=10053",
 							"protocol": "https",
 							"host": [
 								"orbitadmin",
@@ -3075,7 +3328,7 @@
 							"query": [
 								{
 									"key": "partnerId",
-									"value": "10093"
+									"value": "10053"
 								}
 							]
 						}
@@ -3143,21 +3396,21 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Account Balance (WEMA)",
+			"name": "Account Balance (FIDELITY)",
 			"item": [
 				{
-					"name": "Set Account lookup to NIP on banks Copy",
+					"name": "Switch Account lookup",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "876e899f-ef0c-429b-9639-affbd7e8b955",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});"
 								],
-								"id": "e79a9919-d32a-49b3-aefe-15de0d6c7486"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3165,7 +3418,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ebipsbank.test.vggdev.com/api/BankAccounts/SwitchDefaultLookupBank/1203",
+							"raw": "http://ebipsbank.test.vggdev.com/api/BankAccounts/SwitchDefaultLookupBank/1125",
 							"protocol": "http",
 							"host": [
 								"ebipsbank",
@@ -3177,29 +3430,30 @@
 								"api",
 								"BankAccounts",
 								"SwitchDefaultLookupBank",
-								"1203"
+								"1125"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Get Account Balance",
+					"name": "Get Account Balance fidelity",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "058b1f43-89a8-44c2-b5ff-1131b25e5f6c",
 								"exec": [
-									"pm.test(\"Status code is 400\", function () {",
-									"    pm.response.to.have.status(400);",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
 									"});",
 									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"  Account balance is not supported for this bank\");",
+									"    pm.expect(pm.response.text()).to.include(\"Record(s) retrieved successfully.\");",
 									"});",
+									"",
 									""
 								],
-								"id": "f6ef182a-c868-40cc-8729-52353ddef247"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3218,7 +3472,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"bankCode\": \"035\",\r\n  \"accNumber\": \"0122864353\"\r\n}\r\n",
+							"raw": "{\r\n  \"bankCode\": \"070\",\r\n  \"accNumber\": \"6170185339\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3242,69 +3496,26 @@
 						}
 					},
 					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Account Balance (FIDELITY)",
-			"item": [
-				{
-					"name": "Switch Account lookup",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"id": "876e899f-ef0c-429b-9639-affbd7e8b955"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://ebipsbank.test.vggdev.com/api/BankAccounts/SwitchDefaultLookupBank/1203",
-							"protocol": "http",
-							"host": [
-								"ebipsbank",
-								"test",
-								"vggdev",
-								"com"
-							],
-							"path": [
-								"api",
-								"BankAccounts",
-								"SwitchDefaultLookupBank",
-								"1203"
-							]
-						}
-					},
-					"response": []
 				},
 				{
-					"name": "Get Account Balance fidelity",
+					"name": "Get Account Balance (no bank code)",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
 									"});",
 									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"Record(s) retrieved successfully.\");",
+									"    pm.expect(pm.response.text()).to.include(\"BankCode field is requred\");",
 									"});",
+									"",
 									"",
 									""
 								],
-								"id": "058b1f43-89a8-44c2-b5ff-1131b25e5f6c"
+								"id": "24633857-e5b4-4bde-b097-fb67be5db82e"
 							}
 						}
 					],
@@ -3323,7 +3534,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"bankCode\": \"070\",\r\n  \"accNumber\": \"6170185339\"\r\n}\r\n",
+							"raw": "{\r\n  \"bankCode\": \"\",\r\n  \"accNumber\": \"0053549597\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3411,27 +3622,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Account Balance (no bank code)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 400\", function () {",
-									"    pm.response.to.have.status(400);",
-									"});",
-									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"BankCode field is requred\");",
-									"});",
-									"",
-									"",
-									""
-								],
-								"id": "24633857-e5b4-4bde-b097-fb67be5db82e"
-							}
-						}
-					],
+					"name": "Create Bank account setting",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -3447,7 +3638,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"bankCode\": \"\",\r\n  \"accNumber\": \"0053549597\"\r\n}\r\n",
+							"raw": "{\r\n  \"name\": \"password\",\r\n  \"value\": \"rewfgyyyuy6\",\r\n  \"accountNumber\": \"0248652510\",\r\n  \"partnerCode\": \"GUT0\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3455,7 +3646,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/GetBalance",
+							"raw": "https://orbitclient.test.vggdev.com/api/BankAccountSettings/Create",
 							"protocol": "https",
 							"host": [
 								"orbitclient",
@@ -3465,112 +3656,8 @@
 							],
 							"path": [
 								"api",
-								"PartnerAccounts",
-								"GetBalance"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Account statement (WEMA)",
-			"item": [
-				{
-					"name": "Switch Account lookup Copy",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"id": "dcd97cd3-be0f-48b7-a5db-a81d031fa4d2"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://ebipsbank.test.vggdev.com/api/BankAccounts/SwitchDefaultLookupBank/1203",
-							"protocol": "http",
-							"host": [
-								"ebipsbank",
-								"test",
-								"vggdev",
-								"com"
-							],
-							"path": [
-								"api",
-								"BankAccounts",
-								"SwitchDefaultLookupBank",
-								"1203"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Account statement",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 400\", function () {",
-									"    pm.response.to.have.status(400);",
-									"});",
-									"",
-									"pm.test(\"Body contains string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"Account statement is not supported for this bank\");",
-									"});"
-								],
-								"id": "6ebbf4f4-800f-46fb-9aff-15618c676c4f"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{PartnerToken}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"bankCode\": \"035\",\r\n  \"accNumber\": \"0122864353\",\r\n  \"startDate\": \"2020-03-01\",\r\n  \"stopDate\": \"2020-03-31\"\r\n}\r\n\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/GetAccountStatement",
-							"protocol": "https",
-							"host": [
-								"orbitclient",
-								"test",
-								"vggdev",
-								"com"
-							],
-							"path": [
-								"api",
-								"PartnerAccounts",
-								"GetAccountStatement"
+								"BankAccountSettings",
+								"Create"
 							]
 						}
 					},
@@ -3626,7 +3713,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "1f4bce38-b6d2-492e-81ab-9b76dc89fbf3",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -3636,7 +3723,7 @@
 									"    pm.expect(pm.response.text()).to.include(\"Record(s) retrieved successfully.\");",
 									"});"
 								],
-								"id": "1f4bce38-b6d2-492e-81ab-9b76dc89fbf3"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3655,7 +3742,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"bankCode\": \"070\",\r\n  \"accNumber\": \"6170185339\",\r\n  \"startDate\": \"2020-03-01\",\r\n  \"stopDate\": \"2020-03-31\"\r\n}\r\n\r\n",
+							"raw": "{\r\n  \"bankCode\": \"070\",\r\n  \"accNumber\": \"6170185339\",\r\n  \"startDate\": \"2020-03-01\",\r\n  \"stopDate\": \"2020-03-31\",\r\n  \"accountId\": 1\r\n}\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3924,239 +4011,6 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Update Profiled Partner Account",
-			"item": [
-				{
-					"name": "Update Profiled Partner Account with  access key & secret key",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"Partner account was updated successfully\");",
-									"});"
-								],
-								"id": "c94acee5-d72a-4994-a6bf-d300fab85f56"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{PartnerToken}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"0053549597\",\r\n  \"accessKey\": \"000TWYRFTY\",\r\n  \"secretKey\": \"11YQ97TWQGWJH\"\r\n}\r\n\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/UpdateSecretKey",
-							"protocol": "https",
-							"host": [
-								"orbitclient",
-								"test",
-								"vggdev",
-								"com"
-							],
-							"path": [
-								"api",
-								"PartnerAccounts",
-								"UpdateSecretKey"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Profiled Partner Account with  access key & secret key  (no keys inputed)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"id": "13b840c4-4a43-4066-a866-8265c7624a60"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{PartnerToken}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"0053549597\",\r\n  \"accessKey\": \"\",\r\n  \"secretKey\": \"\"\r\n}\r\n\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/UpdateSecretKey",
-							"protocol": "https",
-							"host": [
-								"orbitclient",
-								"test",
-								"vggdev",
-								"com"
-							],
-							"path": [
-								"api",
-								"PartnerAccounts",
-								"UpdateSecretKey"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Profiled Partner Account with  access key & secret key  (only access keys)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"id": "5bc93661-9fc1-4419-8da1-66ca82d9e004"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{PartnerToken}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"0053549597\",\r\n  \"accessKey\": \"5TWYRFTY\",\r\n  \"secretKey\": \"\"\r\n}\r\n\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/UpdateSecretKey",
-							"protocol": "https",
-							"host": [
-								"orbitclient",
-								"test",
-								"vggdev",
-								"com"
-							],
-							"path": [
-								"api",
-								"PartnerAccounts",
-								"UpdateSecretKey"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Profiled Partner Account with  access key & secret key  (only secret keys)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"id": "26f739a7-14de-451c-a075-32ad8ee22bf6"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{PartnerToken}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"0053549597\",\r\n  \"accessKey\": \"\",\r\n  \"secretKey\": \"uygwcrekw\"\r\n}\r\n\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/UpdateSecretKey",
-							"protocol": "https",
-							"host": [
-								"orbitclient",
-								"test",
-								"vggdev",
-								"com"
-							],
-							"path": [
-								"api",
-								"PartnerAccounts",
-								"UpdateSecretKey"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
 			"name": "Get Profiled Account ",
 			"item": [
 				{
@@ -4165,7 +4019,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "6fa532a8-8442-4390-b542-747cd2960761",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -4175,7 +4029,7 @@
 									"    pm.expect(pm.response.text()).to.include(\"Record(s) retrieved successfully.\");",
 									"});"
 								],
-								"id": "6fa532a8-8442-4390-b542-747cd2960761"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -4509,7 +4363,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "c47a40e7-4640-4dd9-bbd4-edb337bcaeba",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -4519,7 +4373,7 @@
 									"});\r",
 									""
 								],
-								"id": "c47a40e7-4640-4dd9-bbd4-edb337bcaeba"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -4537,7 +4391,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/activate?Id=54",
+							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/activate?Id=4",
 							"protocol": "https",
 							"host": [
 								"orbitclient",
@@ -4553,7 +4407,7 @@
 							"query": [
 								{
 									"key": "Id",
-									"value": "54"
+									"value": "4"
 								}
 							]
 						}
@@ -4673,45 +4527,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Activate partner account as a VG admin(valid id)",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{VGGAdminToken}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "https://orbitadmin.test.vggdev.com/api/PartnerAccounts/activate?Id=45",
-							"protocol": "https",
-							"host": [
-								"orbitadmin",
-								"test",
-								"vggdev",
-								"com"
-							],
-							"path": [
-								"api",
-								"PartnerAccounts",
-								"activate"
-							],
-							"query": [
-								{
-									"key": "Id",
-									"value": "45"
-								}
-							]
-						}
-					},
-					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -4753,7 +4568,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": 60\r\n}",
+							"raw": "{\r\n  \"id\": 4\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4897,65 +4712,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Deactivate partner account as a VGG Admin(valid id)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"Account has been deactivated successfully.\");\r",
-									"});"
-								],
-								"id": "5fa65dcd-e5bf-4731-bd37-dfca3a5af3ab"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{VGGAdminToken}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"id\": 45\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://orbitadmin.test.vggdev.com/api/PartnerAccounts/deactivate",
-							"protocol": "https",
-							"host": [
-								"orbitadmin",
-								"test",
-								"vggdev",
-								"com"
-							],
-							"path": [
-								"api",
-								"PartnerAccounts",
-								"deactivate"
-							]
-						}
-					},
-					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -4982,7 +4738,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://orbitclient.test.vggdev.com/api/BankAccountSettings?bankCode= 232",
+									"raw": "https://orbitclient.test.vggdev.com/api/BankAccountSettings?bankCode=070",
 									"protocol": "https",
 									"host": [
 										"orbitclient",
@@ -4997,7 +4753,7 @@
 									"query": [
 										{
 											"key": "bankCode",
-											"value": " 232"
+											"value": "070"
 										}
 									]
 								}
@@ -5083,6 +4839,16 @@
 						{
 							"name": "Get Bank account setting (unsupported bank)",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{PartnerToken}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -5117,49 +4883,17 @@
 					"item": [
 						{
 							"name": "Create Bank account setting",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"SharedVector\",\r\n  \"value\": \"s576\",\r\n  \"accountNumber\": \"0053549597\",\r\n  \"partnerCode\": \"GUT0\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "https://orbitclient.test.vggdev.com/api/BankAccountSettings/Create",
-									"protocol": "https",
-									"host": [
-										"orbitclient",
-										"test",
-										"vggdev",
-										"com"
-									],
-									"path": [
-										"api",
-										"BankAccountSettings",
-										"Create"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Create Bank account setting (already created keys)",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "71f91a96-d594-44c0-b5d2-d2a5eeaec29a",
+										"id": "614186d3-b6bb-4763-aaa6-1280f9e0d351",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
-											"pm.test(\"Message matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Name aeskey already exist\");\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Bank Account Settings created successfully\");\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -5181,7 +4915,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"aeskey\",\r\n  \"value\": \"rewfgyyyuy6\",\r\n  \"accountNumber\": \"6170185339\",\r\n  \"partnerCode\": \"GUT0\"\r\n}",
+									"raw": "{\r\n  \"partnerCode\": \"GUT0\",\r\n  \"name\": \"aeskey\",\r\n  \"value\": \"sUDOuet2UOjCOJhm\",\r\n  \"accountNumber\": \"6170185339\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -5277,7 +5011,7 @@
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"The Name field is required.\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"The Value field is required.\");\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -5391,11 +5125,11 @@
 									"script": {
 										"id": "63cc00f4-dfad-48a3-829c-c3a64a8ad73d",
 										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Account number is invalid\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"Account 8862882 has not been profiled for this partner\");\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -5513,7 +5247,7 @@
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Partner Code does not exist\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"Partner cannot create bank account settings for another partner\");\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -5631,7 +5365,7 @@
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Account 0014109992 has not been profile for this partner\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"Account 0014109992 has not been profiled for this partner\");\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -5751,10 +5485,10 @@
 										"id": "bef264f2-727c-4d65-8b44-d448d8ecde3c",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
+											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"pm.test(\"Message matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Partner id is required\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"Partner Code is required\");\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -5983,126 +5717,6 @@
 							"response": []
 						},
 						{
-							"name": "Get keys with bank acct& partner code (deactivated account number)",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "0afa7895-3d73-4971-977c-b92ef8eed967",
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"No keys have been created for this account\");\r",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{PartnerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://orbitclient.test.vggdev.com/api/BankAccountSettings/GetSettingsforAccount?accountnumber=0248652510&partnerCode=GUT0",
-									"protocol": "https",
-									"host": [
-										"orbitclient",
-										"test",
-										"vggdev",
-										"com"
-									],
-									"path": [
-										"api",
-										"BankAccountSettings",
-										"GetSettingsforAccount"
-									],
-									"query": [
-										{
-											"key": "accountnumber",
-											"value": "0248652510"
-										},
-										{
-											"key": "partnerCode",
-											"value": "GUT0"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get keys with bank acct& partner code (profiled account number with no keys set)",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "b07bff98-4572-4f4b-8280-8965dd660ff7",
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"pm.test(\"Message matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"No keys have been created for this account\");\r",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{PartnerToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://orbitclient.test.vggdev.com/api/BankAccountSettings/GetSettingsforAccount?accountnumber=0248652510&partnerCode=GUT0",
-									"protocol": "https",
-									"host": [
-										"orbitclient",
-										"test",
-										"vggdev",
-										"com"
-									],
-									"path": [
-										"api",
-										"BankAccountSettings",
-										"GetSettingsforAccount"
-									],
-									"query": [
-										{
-											"key": "accountnumber",
-											"value": "0248652510"
-										},
-										{
-											"key": "partnerCode",
-											"value": "GUT0"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "Get keys with bank acct& partner code (unprofiled account number)",
 							"request": {
 								"auth": {
@@ -6223,7 +5837,7 @@
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Partner Code does not exist\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"Partner cannot update bank account settings for another partner\");\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -6443,7 +6057,31 @@
 						},
 						{
 							"name": "Update Keys (incomplete account number)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ee8a28e1-83aa-4677-a4ec-d178d803c272",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{PartnerToken}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
@@ -6523,6 +6161,61 @@
 					"path": [
 						"api",
 						"ProviderGateways"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login as Vgg admin test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a4aff49-a22b-4866-a2b5-32a275a78b95",
+						"exec": [
+							"//Set access token as environment variable\r",
+							"var body = JSON.parse(responseBody);\r",
+							"pm.environment.set(\"VGGAdminToken\", body.result.access_token);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body contains string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Successful\");\r",
+							"});\r",
+							"// //Set access token as environment variable\r",
+							"// var body = JSON.parse(responseBody);\r",
+							"// pm.environment.set(\"AdminuseraccessToken\", body.responseData.content.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userName\": \"udeme.bassey@venturegardengroup.com\",\r\n  \"password\": \"VWRlbWUxMjNA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://orbitadmin.test.vggdev.com/api/Auth/login",
+					"protocol": "https",
+					"host": [
+						"orbitadmin",
+						"test",
+						"vggdev",
+						"com"
+					],
+					"path": [
+						"api",
+						"Auth",
+						"login"
 					]
 				}
 			},
