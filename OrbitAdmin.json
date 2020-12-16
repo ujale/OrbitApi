@@ -1,0 +1,4936 @@
+{
+	"info": {
+		"_postman_id": "7a1becff-d05f-4156-8238-364f14e506cb",
+		"name": "Orbit Admin for Jenkins",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Valid details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5e5c3415-3c2a-4029-a214-0e18669c8562",
+								"exec": [
+									"//Set access token as environment variable\r",
+									"var body = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"VGGAdminToken\", body.result.access_token);\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body contains string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Successful\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userName\": \"udeme.bassey@venturegardengroup.com\",\r\n  \"password\": \"VWRlbWUxMjNA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://orbitadmin.test.vggdev.com/api/Auth/login",
+							"protocol": "https",
+							"host": [
+								"orbitadmin",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login (Valid details)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userName\": \"udeme.bassey@venturegardengroup.com\",\r\n  \"password\": \"P@ssw0rd1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://5457ab29-84d7-4175-91d6-e85f6f3a9428.mock.pstmn.io/api/Auth/login",
+									"protocol": "https",
+									"host": [
+										"5457ab29-84d7-4175-91d6-e85f6f3a9428",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"Auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/8.5"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=2592000"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 20 Oct 2020 11:34:26 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Successful\",\n    \"response\": \"Ok\",\n    \"result\": {\n        \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwczovL3Nzby50ZXN0LnZnZ2Rldi5jb20vaWRlbnRpdHkiLCJhdWQiOiJodHRwczovL3Nzby50ZXN0LnZnZ2Rldi5jb20vaWRlbnRpdHkvcmVzb3VyY2VzIiwiZXhwIjoxNjAzMTk3MjY1LCJuYmYiOjE2MDMxOTM2NjUsImNsaWVudF9pZCI6InZpZ2lwYXkub3JiaXQiLCJzY29wZSI6WyJlbWFpbCIsImlkZW50aXR5LXNlcnZlci1hcGkiLCJvcGVuaWQiLCJwcm9maWxlIiwicm9sZXMiXSwic3ViIjoiMzkxMmFiNzQtZGU0MC00ZmFkLTgyZjAtNTA3ZjJiOTY0NWQ1IiwiYXV0aF90aW1lIjoxNjAzMTkzNjY1LCJpZHAiOiJpZHNydiIsInByZWZlcnJlZF91c2VybmFtZSI6InVkZW1lLmJhc3NleUB2ZW50dXJlZ2FyZGVuZ3JvdXAuY29tIiwiZW1haWwiOiJ1ZGVtZS5iYXNzZXlAdmVudHVyZWdhcmRlbmdyb3VwLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjoidHJ1ZSIsInBob25lX251bWJlciI6IjA4MTI2NTE3NzEwIiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjoiZmFsc2UiLCJ2YXRjb2xsZWN0LnJvbGUiOlsidmdnX3VzZXIiLCJBZG1pbmlzdHJhdG9yIl0sImFwcGxpY2F0aW9uIjpbInZhdGNvbGxlY3QiLCJzc291aSIsIlZHR19BUEkxRENGM1ZWM0o1MFQiLCJ3ZWIuZWJpcHMudXNlciIsInN3ZXJ2ZXBheSIsInZpZ2lwYXkub3JiaXQiXSwic3NvdWkucm9sZSI6InZnZ19hZG1pbiIsIndlYi5lYmlwcy51c2VyLnJvbGUiOlsiRUJJUFNfQ29ycG9yYXRlIiwiY2xpZW50dXNlciJdLCJnaXZlbl9uYW1lIjoiVWRlbWUiLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJzd2VydmVwYXkucm9sZSI6WyJTd2VydmVwYXlBZG1pbiIsInZnZ19hZG1pbiIsIkNwQWRtaW4iXSwidmlnaXBheS5vcmJpdC5yb2xlIjoidmdnX2FkbWluIiwiYW1yIjpbInBhc3N3b3JkIl19.EDRCNVDLvfkCcaerZu8uXpr3HhZeHOQfALOmtGwlsWCCxnGj69wiMQaobg6hkfRjlvErR_dWsUpJMCqshoOn0wNeMnCoIp_tlo9DMCNAEGJX-AtzhAVq6i62SSjhI6VGzo4LN0K0A7qkVDxYeeSIY069qseJplJDJF1bQyUu9mc0ATwbQNG5W9ft2Hyj_sCBemUJCdpAqZuyW1w0WCdcM26Qwn8X_YxqFO-u17wBgGTARc3l03txgQ524GOF7dFtf4DK3VgugIRvWEnB1FqloIxBqvpbgR01dM3Zv8CFu1c4un8lPOvEIRcJ9BoypBUKABfWFaxHAVdZiNV643UDqg\",\n        \"expires_in\": 3600,\n        \"token_type\": \"Bearer\",\n        \"permissions\": [\n            {\n                \"roleId\": 0,\n                \"permissionId\": 42,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"System Audit\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4639024+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 43,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"ENABLE USER\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4682902+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 44,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"REJECT PAYOUT SINGLE\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4683332+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 45,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"Corporate\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4683485+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 46,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"PartnerAccounts\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4683619+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 47,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"BusinessAccount\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4683777+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 48,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"Beneficiary\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4684022+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 49,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"Roles\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.468417+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 50,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"AccountBalance\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4684301+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 51,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"Business\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4684445+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 52,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"Users\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4684579+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 53,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"AccountStatement\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4684912+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 54,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"Payout\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4685071+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 55,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"Permissions\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4685201+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 56,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"Schedule\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4685334+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 57,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"REJECT SCHEDULE\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4685467+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 58,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"APPROVE SCHEDULE\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4685788+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 59,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"YCwjUL\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4685952+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 60,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"APPROVE PAYOUT SINGLE\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4686091+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 61,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"ApproveSchedule\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4686223+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 62,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"ApprovePayout\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4686351+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 63,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"RejectSchedule\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4686572+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 64,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"RejectPayout\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.468672+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 65,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"PROFILE\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4686848+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 66,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"PERSONALIZATION\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4686975+01:00\",\n                \"recordStatus\": 0\n            },\n            {\n                \"roleId\": 0,\n                \"permissionId\": 67,\n                \"canRead\": true,\n                \"canUpdate\": true,\n                \"canDelete\": true,\n                \"canCreate\": true,\n                \"permissionName\": \"lLwCki\",\n                \"assignPermission\": false,\n                \"id\": 0,\n                \"isDeleted\": false,\n                \"dateCreated\": \"2020-10-20T12:34:26.4687102+01:00\",\n                \"recordStatus\": 0\n            }\n        ],\n        \"userDetail\": {\n            \"firstName\": \"Udeme\",\n            \"lastName\": \"Test\",\n            \"email\": \"udeme.bassey@venturegardengroup.com\",\n            \"roleType\": \"vgg_admin\",\n            \"claims\": [],\n            \"corporateId\": 244,\n            \"isActive\": false\n        }\n    },\n    \"code\": \"00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "No details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3762315d-fe62-4245-b7dc-6f7b97fa35bc",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Body contains string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Password is required; Email is required\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userName\": \"\",\r\n  \"password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://orbitadmin.test.vggdev.com/api/Auth/login",
+							"protocol": "https",
+							"host": [
+								"orbitadmin",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid Username",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "74af366f-bcb9-4be3-8a58-57f171c2deb5",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Body contains string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Record does not exist\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userName\": \"udeme.lekan@venturegardengroup.com\",\r\n  \"password\": \"VWRlbWUxMjNA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://orbitadmin.test.vggdev.com/api/Auth/login",
+							"protocol": "https",
+							"host": [
+								"orbitadmin",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Bank Partners",
+			"item": [
+				{
+					"name": "Get All Bank Partners",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "80f7123b-9034-4762-8415-f971cef49309",
+								"exec": [
+									"const body = JSON.parse (responseBody);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body contains string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"ORBIT\");\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(body.responseData[1].name).to.eql(\"ORBIT\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://orbitadmin.test.vggdev.com/api/BankPartners",
+							"protocol": "https",
+							"host": [
+								"orbitadmin",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"BankPartners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bank Partner by Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "50aced43-84f9-4d8e-a40f-18a80b5d44ff",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body contains string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"ORBIT\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://orbitadmin.test.vggdev.com/api/BankPartners/GetById?Id=2",
+							"protocol": "https",
+							"host": [
+								"orbitadmin",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"BankPartners",
+								"GetById"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Bank",
+			"item": [
+				{
+					"name": "Get Banks & their codes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f0fe195a-0f67-4057-8f16-c38a5fdff49a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body contains string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Zenith Bank\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://orbitadmin.test.vggdev.com/api/Banks",
+							"protocol": "https",
+							"host": [
+								"orbitadmin",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"Banks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get profiled Banks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fea2b778-354d-4eee-8bce-e87c81bef5e7",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body contains string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Zenith Bank\");\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"countOfProfiledBanks\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://orbitadmin.test.vggdev.com/api/Banks/ProfiledBanks",
+							"protocol": "https",
+							"host": [
+								"orbitadmin",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"Banks",
+								"ProfiledBanks"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Permission",
+			"item": [
+				{
+					"name": "Get Permissions",
+					"item": [
+						{
+							"name": "Get all permission",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "083e35a3-f3e4-40c3-a5cd-f62f0bbbe517",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body contains string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Payout\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Permissions",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Permissions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Role permission (valid details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "531f645e-6214-49c5-a431-f09264cdebc1",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body contains string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Business\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles/10870/permission",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Roles",
+										"10870",
+										"permission"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Create Permission",
+					"item": [
+						{
+							"name": "Create Permission (valid details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "38d885bb-246c-46e7-a405-8e49b0c77fd7",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body contains string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"This is a test permission\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "5d455086-be50-413b-affc-2fa26faf6680",
+										"exec": [
+											"//Generate random name\r",
+											"function xter(length) {\r",
+											"  var result           = '';\r",
+											"  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\r",
+											"  var charactersLength = characters.length;\r",
+											"  for ( var i = 0; i < length; i++ ) {\r",
+											"     result += characters.charAt(Math.floor(Math.random() * charactersLength));\r",
+											"  }\r",
+											"  return result;\r",
+											"}\r",
+											"\r",
+											"\r",
+											"\r",
+											"postman.setEnvironmentVariable(\"permissionName\", xter(6));"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"permissionName\": \"{{permissionName}}\",\r\n  \"permissionDescription\": \"This is a test permission\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Permissions",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Permissions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Permission (long charater lenght )",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0e97303f-db91-440d-9918-c94f84fa767d",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Body contains string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Permission name should not be more than 50 characters\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"permissionName\": \"ENABLE USERyrfgdgdhgdghdrchredtgcrrsaefwatrgdyjymbfhvrscreshtfjmbjmbhtvrcreserwad,muouo.uynikuybvthrvresrdjygbimk hjbvdrcstrszxtchjbminbhtcrstrstvyjtikngbyjvdcrghyfkhvdcyteyvjjawZdfvcvukipm/;p,/ry4wetrsgrdst5c4wyhtvrjyv5xsy5trycdrewdsxrsxjuj6t6erdyvmbghvscrertgbfjydcytdkyb9lo7ytyw4rzaedsdhygkmjfbhvcstreuuygbvtscesddyvjgbvrsxt4retrtuvgcdtrgrdvugbvhgcfrxdyjuvtkuvrcsresxtyurtsteafgfjybkurdcgsxibkurhvscetwhtyf xsythyjfvtrtyjjmbhvcsfeashtykbjyderaefwsyjujbvrszgffbhvdeartrtuyfytdcreatergkubjtdyreyukgjbvdrgcexsewsdyjtbkijfgcstrstrrfudreszykbjyvhtwscrt56uyvtgsrgctgrvgfcswkueg5y6vtdtsccerzshbjvnysrcfbvtcretyh\",\r\n  \"permissionDescription\": \"This permission is to test validation leght\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Permissions",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Permissions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Permission (invalid details )",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "53d51ccb-0575-4edc-a9b8-bb0fad8a6d35",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"permissionName\": \"ENABLE 765$$$\",\r\n  \"permissionDescription\": \"This permission is to test validation leght\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Permissions",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Permissions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Permission (no details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7b213cdf-79c4-4b66-9683-7d44b3621450",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Permission Name is required\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"permissionName\": \"\",\r\n  \"permissionDescription\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Permissions",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Permissions"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Search Permission",
+					"item": [
+						{
+							"name": "Search permission (valid name)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8fd4a1b5-0ecd-4e24-8f03-6bd7892ce5d9",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Permissions/search/user",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Permissions",
+										"search",
+										"user"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Activate permission",
+					"item": [
+						{
+							"name": "Activate Permission(valid permission)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fa371e4a-cf2c-4218-bc51-8a600d3d301c",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Permissions/44/activate",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Permissions",
+										"44",
+										"activate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Activate Permission(already active permission)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3407789e-189e-4de4-ac9a-486b5edb781f",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Permission already active\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Permissions/56/activate",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Permissions",
+										"56",
+										"activate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Activate Permission(no id)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4fc6a75b-cfa9-4693-a738-f9f6d5d93843",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Permissions/activate",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Permissions",
+										"activate"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Deactivate permission",
+					"item": [
+						{
+							"name": "Deactivate Permission(valid details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bf884f09-88e3-4a01-8588-6af3aee3ed5d",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Permissions/44/deactivate",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Permissions",
+										"44",
+										"deactivate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deactivate Permission(no id)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "25d5657b-c9d3-40d8-b444-92e920f7945f",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Permissions/deactivate",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Permissions",
+										"deactivate"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "Create Role",
+					"item": [
+						{
+							"name": "Create Role (Client User)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f5127d8e-8018-40a2-a254-0209047f76de",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Role has been created successfully.\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"roleName\": \"{{roleName}}\",\r\n  \"description\": \"This is a client admin role\",\r\n  \"roleType\": \"clientuser\",\r\n  \"corporateId\": 272\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Role (invalid corporate id)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9cc96c0d-b92f-4957-8745-1713ae899c9a",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"roleName\": \"{{roleName}}\",\r\n  \"description\": \"This is a client admin role\",\r\n  \"roleType\": \"clientuser\",\r\n  \"corporateId\": -2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Roles"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Activate Role",
+					"item": [
+						{
+							"name": "Activate Role (valid)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "29c43b05-c29e-4489-929a-36ce0443c76e",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Role is already active\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles/activate?Id=4",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Roles",
+										"activate"
+									],
+									"query": [
+										{
+											"key": "Id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Activate Role (already active role)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "76fd241b-a62e-4594-b154-f5cd44d4e919",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Role is already active\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles/activate?Id=2",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Roles",
+										"activate"
+									],
+									"query": [
+										{
+											"key": "Id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Activate Role (no id)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9cc82a2e-5823-4979-9694-16462ff98f55",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Invalid Role Id\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles/activate?Id",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Roles",
+										"activate"
+									],
+									"query": [
+										{
+											"key": "Id",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6e707622-fc0b-4595-85c0-4d4749b5cb82",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "bd91e2e3-523e-48d0-b66e-ff1fe15b3157",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Deactivate Role",
+					"item": [
+						{
+							"name": "Deactivate Role (valid details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "96a65cc1-9c54-425f-a907-6714d2090d6f",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Role has been deactivated successfully.\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles/deactivate",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Roles",
+										"deactivate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deactivate Role (already deactivated role)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d8a6d916-37ce-4cfa-8175-e2b249734755",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Role is already inactive\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles/deactivate",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Roles",
+										"deactivate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deactivate Role (invalid details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f0637a75-9448-4571-9a6b-04e79efca418",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Invalid Role Id\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": -9\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles/deactivate",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Roles",
+										"deactivate"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "17db643c-6268-4788-95c5-5de1afa93d61",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "6a8d45f2-d45b-48a8-a0d4-314f629811e5",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get Role",
+					"item": [
+						{
+							"name": "Get Roles (valid details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e2c3c92f-a652-40a4-8b16-7344a02d7b1e",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles/getRoles",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Roles",
+										"getRoles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Role permission (valid details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "66c0e9d6-807a-414d-b2b8-36aae358d2e0",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body contains string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Roles\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles/10870/permission",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Roles",
+										"10870",
+										"permission"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Role type (valid details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9ca1da70-b6e6-4b50-91c9-7a22b4f3d270",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body contains string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"vgg_admin\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles/roletypes",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Roles",
+										"roletypes"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Update Role",
+					"item": [
+						{
+							"name": "Update role(valid details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "049ab2ee-2127-4625-80c4-18677a9a3518",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body contains string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Role has been updated successfully.\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "407d8227-84d1-4959-9ab8-cb40f686e6d1",
+										"exec": [
+											"//Generate random name\r",
+											"function xter(length) {\r",
+											"  var result           = '';\r",
+											"  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\r",
+											"  var charactersLength = characters.length;\r",
+											"  for ( var i = 0; i < length; i++ ) {\r",
+											"     result += characters.charAt(Math.floor(Math.random() * charactersLength));\r",
+											"  }\r",
+											"  return result;\r",
+											"}\r",
+											"\r",
+											"\r",
+											"\r",
+											"postman.setEnvironmentVariable(\"roleName\", xter(4));"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"roleName\": \"{{roleName}}\",\r\n  \"description\": \"testing role update\",\r\n  \"roleType\": \"clientadmin\",\r\n  \"corporateId\": 98\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles?Id=3",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Roles"
+									],
+									"query": [
+										{
+											"key": "Id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Add permissions to role",
+					"item": [
+						{
+							"name": "Add permission to role (valid details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "cb21cb89-ef43-4bd2-a598-e09412cc471a",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"RolePermission record exist already\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"roleId\": 10870,\r\n  \"permissionId\": 56,\r\n  \"canRead\": true,\r\n  \"canUpdate\": true,\r\n  \"canDelete\": true,\r\n  \"canCreate\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles/AddPermission",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Roles",
+										"AddPermission"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add permissions to role (valid details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3c2ce516-0b65-46e4-b89b-2b174cccc308",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Duplicate records not allowed\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"roleId\": 272,\r\n  \"permissions\": [\r\n    {\r\n      \"permissionId\": 42,\r\n      \"canRead\": true,\r\n      \"canUpdate\": true,\r\n      \"canDelete\": true,\r\n      \"canCreate\": true\r\n    },\r\n    {\r\n      \"permissionId\": 43,\r\n      \"canRead\": true,\r\n      \"canUpdate\": true,\r\n      \"canDelete\": true,\r\n      \"canCreate\": true\r\n    },\r\n    {\r\n      \"permissionId\": 45,\r\n      \"canRead\": true,\r\n      \"canUpdate\": true,\r\n      \"canDelete\": true,\r\n      \"canCreate\": true\r\n    },\r\n    {\r\n      \"permissionId\": 46,\r\n      \"canRead\": true,\r\n      \"canUpdate\": true,\r\n      \"canDelete\": true,\r\n      \"canCreate\": true\r\n    },\r\n    {\r\n      \"permissionId\": 47,\r\n      \"canRead\": true,\r\n      \"canUpdate\": true,\r\n      \"canDelete\": true,\r\n      \"canCreate\": true\r\n    },\r\n    {\r\n      \"permissionId\": 48,\r\n      \"canRead\": true,\r\n      \"canUpdate\": true,\r\n      \"canDelete\": true,\r\n      \"canCreate\": true\r\n    },\r\n    {\r\n      \"permissionId\": 49,\r\n      \"canRead\": true,\r\n      \"canUpdate\": true,\r\n      \"canDelete\": true,\r\n      \"canCreate\": true\r\n    },\r\n    {\r\n      \"permissionId\": 50,\r\n      \"canRead\": true,\r\n      \"canUpdate\": true,\r\n      \"canDelete\": true,\r\n      \"canCreate\": true\r\n    },\r\n    {\r\n      \"permissionId\": 51,\r\n      \"canRead\": true,\r\n      \"canUpdate\": true,\r\n      \"canDelete\": true,\r\n      \"canCreate\": true\r\n    },\r\n    {\r\n      \"permissionId\": 52,\r\n      \"canRead\": true,\r\n      \"canUpdate\": true,\r\n      \"canDelete\": true,\r\n      \"canCreate\": true\r\n    },\r\n    {\r\n      \"permissionId\": 53,\r\n      \"canRead\": true,\r\n      \"canUpdate\": true,\r\n      \"canDelete\": true,\r\n      \"canCreate\": true\r\n    },\r\n    {\r\n      \"permissionId\": 54,\r\n      \"canRead\": true,\r\n      \"canUpdate\": true,\r\n      \"canDelete\": true,\r\n      \"canCreate\": true\r\n    },\r\n    {\r\n      \"permissionId\": 55,\r\n      \"canRead\": true,\r\n      \"canUpdate\": true,\r\n      \"canDelete\": true,\r\n      \"canCreate\": true\r\n    },\r\n    {\r\n      \"permissionId\": 55,\r\n      \"canRead\": true,\r\n      \"canUpdate\": true,\r\n      \"canDelete\": true,\r\n      \"canCreate\": true\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles/addrolepermissions",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Roles",
+										"addrolepermissions"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Search Role by name",
+					"item": [
+						{
+							"name": "Search Role by name (valid details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8019b07b-3baf-4d7c-8a9b-6454be359f34",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles/search/client",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Roles",
+										"search",
+										"client"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User mgt",
+			"item": [
+				{
+					"name": "Create users",
+					"item": [
+						{
+							"name": "Client Admin",
+							"item": [
+								{
+									"name": "Client admin (valid details)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "e7667da9-24c9-4594-a7ec-14237ea776ec",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"pm.test(\"Body contains string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"Kindly verify your account by following the link sent to your email address.\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "97ca3d03-79b4-4d17-b556-e6d475af6624",
+												"exec": [
+													"//Generate random name\r",
+													"function xter(length) {\r",
+													"  var result           = '';\r",
+													"  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\r",
+													"  var charactersLength = characters.length;\r",
+													"  for ( var i = 0; i < length; i++ ) {\r",
+													"     result += characters.charAt(Math.floor(Math.random() * charactersLength));\r",
+													"  }\r",
+													"  return result;\r",
+													"}\r",
+													"\r",
+													"\r",
+													"\r",
+													"postman.setEnvironmentVariable(\"clientadminemail\", xter(6) + \"@yopmail.com\");\r",
+													"postman.setEnvironmentVariable(\"company\", xter(6));"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{VGGAdminToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"contactEmail\": \"{{clientadminemail}}\",\r\n  \"contactFirstName\": \"Client\",\r\n  \"contactLastName\": \"Admin\",\r\n  \"companyName\": \"{{company}}\",\r\n  \"password\": \"P@ssw0rd\",\r\n  \"confirmPassword\": \"P@ssw0rd\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://orbitadmin.test.vggdev.com/api/Onboard",
+											"protocol": "https",
+											"host": [
+												"orbitadmin",
+												"test",
+												"vggdev",
+												"com"
+											],
+											"path": [
+												"api",
+												"Onboard"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Client admin (existing details)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d19893d0-181e-4f7e-8b2b-e50d10536234",
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"pm.test(\"Body contains string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"already exist\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{VGGAdminToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"contactEmail\": \"qclient@yopmail.com\",\r\n  \"contactFirstName\": \"Client\",\r\n  \"contactLastName\": \"Admin\",\r\n  \"companyName\": \"Qrurey\",\r\n  \"password\": \"P@ssw0rd\",\r\n  \"confirmPassword\": \"P@ssw0rd\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://orbitadmin.test.vggdev.com/api/Onboard",
+											"protocol": "https",
+											"host": [
+												"orbitadmin",
+												"test",
+												"vggdev",
+												"com"
+											],
+											"path": [
+												"api",
+												"Onboard"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Client admin (invalid email)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "bcdfb706-8740-4ad0-b523-6ee2d87443fe",
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"pm.test(\"Body contains string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"Invalid Email Address\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{VGGAdminToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"contactEmail\": \"qclientyopmail.com\",\r\n  \"contactFirstName\": \"Client\",\r\n  \"contactLastName\": \"Admin\",\r\n  \"companyName\": \"Qurey\",\r\n  \"password\": \"P@ssw0rd\",\r\n  \"confirmPassword\": \"P@ssw0rd\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://orbitadmin.test.vggdev.com/api/Onboard",
+											"protocol": "https",
+											"host": [
+												"orbitadmin",
+												"test",
+												"vggdev",
+												"com"
+											],
+											"path": [
+												"api",
+												"Onboard"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Client admin (no name)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "63da9795-1cb2-4180-a7cc-fadcd002e235",
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"pm.test(\"Body contains string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"Contact First Name must not contain number or special characters\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{VGGAdminToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"contactEmail\": \"qclientyopmail.com\",\r\n  \"contactFirstName\": \"\",\r\n  \"contactLastName\": \"\",\r\n  \"companyName\": \"Qurey\",\r\n  \"password\": \"P@ssw0rd\",\r\n  \"confirmPassword\": \"P@ssw0rd\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://orbitadmin.test.vggdev.com/api/Onboard",
+											"protocol": "https",
+											"host": [
+												"orbitadmin",
+												"test",
+												"vggdev",
+												"com"
+											],
+											"path": [
+												"api",
+												"Onboard"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Client admin (incorrect password combination)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "c85558e6-1a23-47a8-b95f-e14c3881786e",
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"pm.test(\"Body contains string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"Password should be a minimum of 6 characters with a number, an upper case letter, a lower case and a special character\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{VGGAdminToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"contactEmail\": \"qclient@yopmail.com\",\r\n  \"contactFirstName\": \"abc\",\r\n  \"contactLastName\": \"efg\",\r\n  \"companyName\": \"Qurey\",\r\n  \"password\": \"P@sswrd\",\r\n  \"confirmPassword\": \"P@sswrd\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://orbitadmin.test.vggdev.com/api/Onboard",
+											"protocol": "https",
+											"host": [
+												"orbitadmin",
+												"test",
+												"vggdev",
+												"com"
+											],
+											"path": [
+												"api",
+												"Onboard"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Client admin (mismatched password)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "988f219d-a547-45dd-845b-fb8353ce797a",
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"pm.test(\"Body contains string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"Contact First Name must not contain number or special characters\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{VGGAdminToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"contactEmail\": \"\",\r\n  \"contactFirstName\": \"\",\r\n  \"contactLastName\": \"\",\r\n  \"companyName\": \"\",\r\n  \"password\": \"\",\r\n  \"confirmPassword\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://orbitadmin.test.vggdev.com/api/Onboard",
+											"protocol": "https",
+											"host": [
+												"orbitadmin",
+												"test",
+												"vggdev",
+												"com"
+											],
+											"path": [
+												"api",
+												"Onboard"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Client User",
+							"item": [
+								{
+									"name": "Create User (Client user)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "023a6997-98c1-4898-a1d8-9a33dc756718",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "5de186e3-0fd9-48a9-b276-215219b94e03",
+												"exec": [
+													"//Generate random number\r",
+													"function num(length) {\r",
+													"  var result1           = '';\r",
+													"  var numbers       = '0123456789';\r",
+													"  var numbersLength = numbers.length;\r",
+													"  for ( var i = 0; i < length; i++ ) {\r",
+													"     result1 += numbers.charAt(Math.floor(Math.random() * numbersLength));\r",
+													"  }\r",
+													"  return result1;\r",
+													"}\r",
+													"\r",
+													"//Generate random name\r",
+													"function xter(length) {\r",
+													"  var result           = '';\r",
+													"  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\r",
+													"  var charactersLength = characters.length;\r",
+													"  for ( var i = 0; i < length; i++ ) {\r",
+													"     result += characters.charAt(Math.floor(Math.random() * charactersLength));\r",
+													"  }\r",
+													"  return result;\r",
+													"}\r",
+													"\r",
+													"\r",
+													"postman.setEnvironmentVariable(\"Phone\", \"0803\" + num(7));\r",
+													"postman.setEnvironmentVariable(\"Email1\", xter(6) + \"@yopmail.com\");"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{VGGAdminToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"firstName\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\",\r\n  \"email\": \"{{Email1}}\",\r\n  \"phoneNumber\": \"{{Phone}}\",\r\n  \"roleId\": 10752,\r\n  \"corporateType\": \"Corporate\",\r\n  \"corporateId\": 272\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://orbitadmin.test.vggdev.com/api/Users/CreateUser",
+											"protocol": "https",
+											"host": [
+												"orbitadmin",
+												"test",
+												"vggdev",
+												"com"
+											],
+											"path": [
+												"api",
+												"Users",
+												"CreateUser"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Client user(already existing email)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "26f4e9d3-f50a-45f6-9356-b4d2b4a44e71",
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Body contains string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"already exist\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{VGGAdminToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"firstName\": \"Real1\",\r\n  \"lastName\": \"madrid1\",\r\n  \"email\": \"madrid@yopmail.com\",\r\n  \"phoneNumber\": \"09067543547\",\r\n  \"roleId\": 10752,\r\n  \"corporateType\": \"Corporate\",\r\n  \"corporateId\": 272\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://orbitadmin.test.vggdev.com/api/Users/CreateUser",
+											"protocol": "https",
+											"host": [
+												"orbitadmin",
+												"test",
+												"vggdev",
+												"com"
+											],
+											"path": [
+												"api",
+												"Users",
+												"CreateUser"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Partner",
+							"item": [
+								{
+									"name": "Create User (partner)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8d6c501f-776d-4d2e-8dc1-b2399aad3df7",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "b8a92c16-c494-481e-8e5f-ca0e0319bc9a",
+												"exec": [
+													"//Generate random name\r",
+													"function xter(length) {\r",
+													"  var result           = '';\r",
+													"  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\r",
+													"  var charactersLength = characters.length;\r",
+													"  for ( var i = 0; i < length; i++ ) {\r",
+													"     result += characters.charAt(Math.floor(Math.random() * charactersLength));\r",
+													"  }\r",
+													"  return result;\r",
+													"}\r",
+													"\r",
+													"//Generate random number\r",
+													"function num(length) {\r",
+													"  var result1           = '';\r",
+													"  var numbers       = '0123456789';\r",
+													"  var numbersLength = numbers.length;\r",
+													"  for ( var i = 0; i < length; i++ ) {\r",
+													"     result1 += numbers.charAt(Math.floor(Math.random() * numbersLength));\r",
+													"  }\r",
+													"  return result1;\r",
+													"}\r",
+													"\r",
+													"\r",
+													"postman.setEnvironmentVariable(\"Phone\", \"0803\" + num(7));\r",
+													"postman.setEnvironmentVariable(\"mail\", xter(6) + \"@yopmail.com\");\r",
+													"postman.setEnvironmentVariable(\"partnercode\", xter(5));\r",
+													"postman.setEnvironmentVariable(\"appname\", xter(6));"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{VGGAdminToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"applicationName\": \"{{appname}}\",\r\n  \"description\": \"{{$randomAbbreviation}}\",\r\n  \"firstName\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\",\r\n  \"email\": \"{{mail}}\",\r\n  \"password\": \"P@ssw0rd1\",\r\n  \"mobileNumber\": \"{{Phone}}\",\r\n  \"code\": \"{{partnercode}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://orbitadmin.test.vggdev.com/api/Partners/Create",
+											"protocol": "https",
+											"host": [
+												"orbitadmin",
+												"test",
+												"vggdev",
+												"com"
+											],
+											"path": [
+												"api",
+												"Partners",
+												"Create"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get user",
+					"item": [
+						{
+							"name": "Get Users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "099da8b9-e190-4acc-adee-b838d1e57d5a",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body contains string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Users retrieved successfully\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Users",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Users by SSOuserid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0fb9e0b9-5f36-4f26-a24f-3257e8f57308",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body contains string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"User record found\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Users/GetUserByUserId/e64f2ba9-afb7-4b02-971d-e1c2434bb7d8",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Users",
+										"GetUserByUserId",
+										"e64f2ba9-afb7-4b02-971d-e1c2434bb7d8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User count",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e40f29ff-80bd-438c-aa4a-dc519b4ff993",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body contains string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Records found\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Users/UserCounts",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Users",
+										"UserCounts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Corporate Users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a5f7f86e-be68-446c-9f56-f3d0e4fcbd49",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Users retrieved successfully\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Users/GetCorporateUsers/560",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Users",
+										"GetCorporateUsers",
+										"560"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Update User",
+					"item": [
+						{
+							"name": "Update User (valid details)",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "5d513946-c203-4cff-8ccf-4f06a2f4004f",
+										"exec": [
+											"//Generate random name\r",
+											"function xter(length) {\r",
+											"  var result           = '';\r",
+											"  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\r",
+											"  var charactersLength = characters.length;\r",
+											"  for ( var i = 0; i < length; i++ ) {\r",
+											"     result += characters.charAt(Math.floor(Math.random() * charactersLength));\r",
+											"  }\r",
+											"  return result;\r",
+											"}\r",
+											"\r",
+											"//Generate random number\r",
+											"function num(length) {\r",
+											"  var result1           = '';\r",
+											"  var numbers       = '0123456789';\r",
+											"  var numbersLength = numbers.length;\r",
+											"  for ( var i = 0; i < length; i++ ) {\r",
+											"     result1 += numbers.charAt(Math.floor(Math.random() * numbersLength));\r",
+											"  }\r",
+											"  return result1;\r",
+											"}\r",
+											"\r",
+											"postman.setEnvironmentVariable(\"Fname\", xter(6));\r",
+											"postman.setEnvironmentVariable(\"Lname\", xter(6));\r",
+											"postman.setEnvironmentVariable(\"number\", \"0803\" + num(7));"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "8d24afde-1f12-4ae8-acfe-5a01af24d0b2",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body contains string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"User update Successful\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstName\": \"{{Fname}}\",\r\n  \"lastName\": \"{{Lname}}\",\r\n  \"email\": \"real@yopmail.com\",\r\n  \"phoneNumber\": \"{{number}}\",\r\n  \"roleId\": 10752,\r\n  \"corporateType\": \"Corporate\",\r\n  \"corporateId\": 272\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Users/UpdateUser",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Users",
+										"UpdateUser"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Enable User ",
+					"item": [
+						{
+							"name": "Enable user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "da355e0f-ac53-4848-9a90-06aeccf8bfe1",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Users/e64f2ba9-afb7-4b02-971d-e1c2434bb7d8/enable",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Users",
+										"e64f2ba9-afb7-4b02-971d-e1c2434bb7d8",
+										"enable"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Disable User",
+					"item": [
+						{
+							"name": "Disable user (valid details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "888dfdb1-89ca-4e52-86e7-9becb6d015b4",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body contains string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"User has been deactivated successfully\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Users/e64f2ba9-afb7-4b02-971d-e1c2434bb7d8/disable",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Users",
+										"e64f2ba9-afb7-4b02-971d-e1c2434bb7d8",
+										"disable"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "PROVIDER GATEWAY",
+			"item": [
+				{
+					"name": "Get Provider Gateway",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e7fd553f-8d51-4065-89ba-56d687ba027d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body contains string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Sterling Bank\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{VGGAdminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://orbitadmin.test.vggdev.com/api/ProviderGateways",
+							"protocol": "https",
+							"host": [
+								"orbitadmin",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"ProviderGateways"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Provider Gateway by Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a2cbe76b-d3a5-4545-b70f-91ff206dbc7e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body contains string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Providus\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{VGGAdminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://orbitadmin.test.vggdev.com/api/ProviderGateways/GetById?Id=4",
+							"protocol": "https",
+							"host": [
+								"orbitadmin",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"ProviderGateways",
+								"GetById"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Businesses Account",
+			"item": [
+				{
+					"name": "BusinessesAndAccounts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6ed04a20-67a8-4c83-bad9-66f24f3b59b3",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Water\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{VGGAdminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://orbitadmin.test.vggdev.com/api/Businesses/BusinessesAndAccounts",
+							"protocol": "https",
+							"host": [
+								"orbitadmin",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"Businesses",
+								"BusinessesAndAccounts"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Corporates",
+			"item": [
+				{
+					"name": "Search corporate by name",
+					"item": [
+						{
+							"name": "Search corporate by name(valid)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9c9de3d6-5039-483c-b1f5-6e6ffa71ff04",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Corporates/SearchCorporateByName?name=stray",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Corporates",
+										"SearchCorporateByName"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "stray"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Search corporate by name(no details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ce839779-0b61-4093-81e0-49266f2e35a9",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Body contains string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Corporate name is required\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Corporates/SearchCorporateByName?name=",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Corporates",
+										"SearchCorporateByName"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "GetAll Corporate",
+					"item": [
+						{
+							"name": "GetAll Corporates(valid details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "94cc2346-31d1-46cd-ae9e-dc4a7df109b3",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Corporates/AllCorporates",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Corporates",
+										"AllCorporates"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get Corporate by ID",
+					"item": [
+						{
+							"name": "GetAll Corporates(valid details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7db6f619-606f-4e9a-b53a-d962723faa82",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Corporates/GetByCorporateId?corporateId=272",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Corporates",
+										"GetByCorporateId"
+									],
+									"query": [
+										{
+											"key": "corporateId",
+											"value": "272"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAll Corporates(no details)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "246b027c-4a8f-4a83-89ae-044f0d06864a",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Corporate is required\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Corporates/GetByCorporateId?corporateId=",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Corporates",
+										"GetByCorporateId"
+									],
+									"query": [
+										{
+											"key": "corporateId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Number of banks per corporate",
+					"item": [
+						{
+							"name": "Get number of banks per corporate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6a0df1c1-b960-4cbc-b616-dc5526e18d93",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Corporates/NumberofBanksPerCorporate",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Corporates",
+										"NumberofBanksPerCorporate"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Transaction Count per Corporate",
+					"item": [
+						{
+							"name": "Transaction count per corporate",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/Corporates/TransactionCountPerCorporate",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"Corporates",
+										"TransactionCountPerCorporate"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Update Corporate",
+					"item": [
+						{
+							"name": "Update Corporate (valid)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dfbbf025-3530-4f96-a94a-a4c9bfee5211",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwczovL3Nzby50ZXN0LnZnZ2Rldi5jb20vaWRlbnRpdHkiLCJhdWQiOiJodHRwczovL3Nzby50ZXN0LnZnZ2Rldi5jb20vaWRlbnRpdHkvcmVzb3VyY2VzIiwiZXhwIjoxNTk0MTU4NTcwLCJuYmYiOjE1OTQxNTQ5NzAsImNsaWVudF9pZCI6InZpZ2lwYXkub3JiaXQiLCJzY29wZSI6WyJlbWFpbCIsImlkZW50aXR5LXNlcnZlci1hcGkiLCJvcGVuaWQiLCJwcm9maWxlIiwicm9sZXMiXSwic3ViIjoiMzkxMmFiNzQtZGU0MC00ZmFkLTgyZjAtNTA3ZjJiOTY0NWQ1IiwiYXV0aF90aW1lIjoxNTk0MTU0OTcwLCJpZHAiOiJpZHNydiIsInByZWZlcnJlZF91c2VybmFtZSI6InVkZW1lLmJhc3NleUB2ZW50dXJlZ2FyZGVuZ3JvdXAuY29tIiwiZW1haWwiOiJ1ZGVtZS5iYXNzZXlAdmVudHVyZWdhcmRlbmdyb3VwLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjoidHJ1ZSIsInBob25lX251bWJlciI6IjA4MTI2NTE3NzEwIiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjoiZmFsc2UiLCJ2YXRjb2xsZWN0LnJvbGUiOlsidmdnX3VzZXIiLCJBZG1pbmlzdHJhdG9yIl0sImFwcGxpY2F0aW9uIjpbInZhdGNvbGxlY3QiLCJzc291aSIsIlZHR19BUEkxRENGM1ZWM0o1MFQiLCJ3ZWIuZWJpcHMudXNlciIsInN3ZXJ2ZXBheSIsInZpZ2lwYXkub3JiaXQiXSwic3NvdWkucm9sZSI6InZnZ19hZG1pbiIsIndlYi5lYmlwcy51c2VyLnJvbGUiOlsiRUJJUFNfQ29ycG9yYXRlIiwiY2xpZW50dXNlciJdLCJnaXZlbl9uYW1lIjoiVWRlbWUiLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJzd2VydmVwYXkucm9sZSI6WyJTd2VydmVwYXlBZG1pbiIsInZnZ19hZG1pbiIsIkNwQWRtaW4iXSwidmlnaXBheS5vcmJpdC5yb2xlIjoidmdnX2FkbWluIiwiYW1yIjpbInBhc3N3b3JkIl19.JNxjh-MWYXZFL3uNDyO1Wsy9u39NT8KKjBsblW2fycG_bMRVdTy8vQ3sH0csLHdhuY7AiVv1rJPFn4kO5gFzzQO0VsuU6e1ehlh30sHT1VtRkWVDEq-L3Xtw7LOBF7aJRH0vFfFPabnAzB_QlYOaEiXXoSfja4aIs_NxPpOr1L-K8_dMDH8Inwac7SiIzPLyr1jqhXA0SyqR7d1lgMDLtveVGgjrILZKxMnBJoU4bbjcFXIYnpKf85lJnzrKQDjepJQEsDm0GdxaEk1e4bAszCEU397WPvDiMCbEWvC3jclQ2l-Y0J9WwLRWZCVF8esgxW8iOez4Nshe7nip4d_i_A",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"businessAddress\": \"{{$randomStreetAddress}}\",\r\n  \"businessEmail\": \"winslo@yopmail.co\",\r\n  \"city\": \"{{$randomCity}}\",\r\n  \"state\": \"state\",\r\n  \"rcNumber\": \"\",\r\n  \"primaryContactPhoneNumber\": \"09087654535\",\r\n  \"alternateContactPhoneNumber\": \"{{$randomPhoneNumber}}\",\r\n  \"corporateName\": \"Quails\",\r\n  \"corporateId\": 32259\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{orbitadminurl}}/api/Corporates",
+									"host": [
+										"{{orbitadminurl}}"
+									],
+									"path": [
+										"api",
+										"Corporates"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Payment channel",
+			"item": [
+				{
+					"name": "GetAll payment channel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2bda806f-9bae-4f10-80ef-b908155accbe",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body contains string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Banks\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{orbitadminurl}}/api/PaymentChannels",
+							"host": [
+								"{{orbitadminurl}}"
+							],
+							"path": [
+								"api",
+								"PaymentChannels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create payment channel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "53402178-d485-40ae-93c6-fc287ee8dbfd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Payment channel created successfully\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"{{$randomFileName}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{orbitadminurl}}/api/PaymentChannels/Create",
+							"host": [
+								"{{orbitadminurl}}"
+							],
+							"path": [
+								"api",
+								"PaymentChannels",
+								"Create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create payment channel with no details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fd95c244-389e-41fa-8a31-5a7c450669a2",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Name must be between 6 and 25 char\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{orbitadminurl}}/api/PaymentChannels/Create",
+							"host": [
+								"{{orbitadminurl}}"
+							],
+							"path": [
+								"api",
+								"PaymentChannels",
+								"Create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate payment channel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d31122a0-bc87-4fb2-9905-4f02a334a055",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Payment Channel activated successfully\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{orbitadminurl}}/api/PaymentChannels/Activate?Id=3",
+							"host": [
+								"{{orbitadminurl}}"
+							],
+							"path": [
+								"api",
+								"PaymentChannels",
+								"Activate"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate payment channel no detail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "163899fa-7c88-40a4-b1b5-5e8b424eb886",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Payment Provider does not exist\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{orbitadminurl}}/api/PaymentChannels/Activate?Id=",
+							"host": [
+								"{{orbitadminurl}}"
+							],
+							"path": [
+								"api",
+								"PaymentChannels",
+								"Activate"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate payment channel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0044087e-0ba2-43aa-98f6-5563131bd0f3",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Payment channel deactivated successfully\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{orbitadminurl}}/api/PaymentChannels/Deactivate?Id=3",
+							"host": [
+								"{{orbitadminurl}}"
+							],
+							"path": [
+								"api",
+								"PaymentChannels",
+								"Deactivate"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get payment channel by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{orbitadminurl}}/api/PaymentChannels/Get?Id=7",
+							"host": [
+								"{{orbitadminurl}}"
+							],
+							"path": [
+								"api",
+								"PaymentChannels",
+								"Get"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update payment channel",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "56ba8b86-284b-4b4c-83f9-03771437fdfb",
+								"exec": [
+									"//Generate random name\r",
+									"function xter(length) {\r",
+									"  var result           = '';\r",
+									"  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\r",
+									"  var charactersLength = characters.length;\r",
+									"  for ( var i = 0; i < length; i++ ) {\r",
+									"     result += characters.charAt(Math.floor(Math.random() * charactersLength));\r",
+									"  }\r",
+									"  return result;\r",
+									"}\r",
+									"\r",
+									"\r",
+									"\r",
+									"postman.setEnvironmentVariable(\"channelname\", xter(6));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "c13861ea-e19a-43a1-a390-b63d9488aace",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 4,\r\n  \"name\": \"{{channelname}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{orbitadminurl}}/api/PaymentChannels/Update",
+							"host": [
+								"{{orbitadminurl}}"
+							],
+							"path": [
+								"api",
+								"PaymentChannels",
+								"Update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update payment channel with already existing details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "93722952-e825-40fe-a323-0430890edc49",
+								"exec": [
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Error ocurred: Invalid paymentchannel Id\");",
+									"});",
+									"",
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 7,\r\n  \"name\": \"Swift\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{orbitadminurl}}/api/PaymentChannels/Update",
+							"host": [
+								"{{orbitadminurl}}"
+							],
+							"path": [
+								"api",
+								"PaymentChannels",
+								"Update"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Dashboard Report",
+			"item": [
+				{
+					"name": "Partner txn status",
+					"item": [
+						{
+							"name": "Partner txn status by hour",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "471e51c1-adb4-45c9-81b5-5b29b2e1bd30",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"const body = JSON.parse(responseBody);\r",
+											"tests[\"Body returns\" + \"   \" + body.responseData.length + \"   \" + \"hours\"] = true\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.comapi/DashboardReport/PartnertnxbyHours/32283/Hourly",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"comapi"
+									],
+									"path": [
+										"DashboardReport",
+										"PartnertnxbyHours",
+										"32283",
+										"Hourly"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Partner txn status by week",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f0233612-92bb-4cd0-b1af-34115e522585",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"const body = JSON.parse(responseBody);\r",
+											"tests[\"Body returns\" + \"   \" + body.responseData.length + \"   \" + \"days\"] = true"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/DashboardReport/partnertnxbyWeekly/32283/weekly",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"DashboardReport",
+										"partnertnxbyWeekly",
+										"32283",
+										"weekly"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Partner txn status by month",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e9947248-4459-4b28-b7ed-3901190d5d4f",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"const body = JSON.parse(responseBody);\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(body.responseData[0].name).to.eql(\"January\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(body.responseData[0].volume).to.eql(0.0);\r",
+											"});\r",
+											"\r",
+											"tests[\"Body returns\" + \"   \" + body.responseData.length + \"   \" + \"months\"] = true"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/DashboardReport/PartnertnxbyMonthly/32283/monthly",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"DashboardReport",
+										"PartnertnxbyMonthly",
+										"32283",
+										"monthly"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Corporate txn status",
+					"item": [
+						{
+							"name": "txn status by hour",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3a396d41-e1df-436c-a6c3-dde76766abf0",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"const body = JSON.parse(responseBody);\r",
+											"tests[\"Body returns\" + \"   \" + body.responseData.length + \"   \" + \"hours\"] = true"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/DashboardReport/CorporatetnxbyHours/272/Hourly",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"DashboardReport",
+										"CorporatetnxbyHours",
+										"272",
+										"Hourly"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "txn status weekly",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fb848a8b-63c7-427b-a228-1a8bc38f17de",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"const body = JSON.parse(responseBody);\r",
+											"tests[\"Body returns\" + \"   \" + body.responseData.length + \"   \" + \"days\"] = true"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/DashboardReport/corporatetnxbystatus/33314/weekly",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"DashboardReport",
+										"corporatetnxbystatus",
+										"33314",
+										"weekly"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "txn status by month",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c4d0ec7a-4550-46a3-8c59-c60be12642b8",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"const body = JSON.parse(responseBody);\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(body.responseData[0].name).to.eql(\"January\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(body.responseData[10].volume).to.eql(2385.00);\r",
+											"});\r",
+											"\r",
+											"tests[\"Body returns\" + \"   \" + body.responseData.length + \"   \" + \"months\"] = true"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/DashboardReport/CorporatetnxbyMonthly/33314/Monthly",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"DashboardReport",
+										"CorporatetnxbyMonthly",
+										"33314",
+										"Monthly"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "txn status by month Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "846bd737-74a8-4ffb-9263-a12bd337fc94",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"const body = JSON.parse(responseBody);\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(body.responseData[0].name).to.eql(\"January\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(body.responseData[10].volume).to.eql(2385.00);\r",
+											"});\r",
+											"\r",
+											"tests[\"Body returns\" + \"   \" + body.responseData.length + \"   \" + \"months\"] = true"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/DashboardReport/CorporatetnxbyMonthly/33314/Monthly",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"DashboardReport",
+										"CorporatetnxbyMonthly",
+										"33314",
+										"Monthly"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Audit Logs",
+			"item": [
+				{
+					"name": "Corporate logs",
+					"item": [
+						{
+							"name": "Get logs by email",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "be46d089-82ad-419b-9069-6860f3d2878b",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Record(s) retrieved successfully.\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/UserAuditsLog/LogsByEmail?email=gutem@yopmail.com&pageNumber=1&pageSize=10",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"UserAuditsLog",
+										"LogsByEmail"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "gutem@yopmail.com"
+										},
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get logs for 24hrs",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f7c6149b-80f6-4885-95c5-11d1ea699a91",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Record(s) retrieved successfully.\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/UserAuditsLog/AllLogsFor24Hours?pageNumber=1&pageSize=1000",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"UserAuditsLog",
+										"AllLogsFor24Hours"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "1000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get logs for action & role",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5c002428-9f2c-4a69-bb16-62e0900ae3a4",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Record(s) retrieved successfully.\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/UserAuditsLog/LogsByActionAndRole?action=Create&role=clientadmin&startDate=02-12-2020&endDate=02-12-2020&pageNumber=1&pageSize=10",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"UserAuditsLog",
+										"LogsByActionAndRole"
+									],
+									"query": [
+										{
+											"key": "action",
+											"value": "Create"
+										},
+										{
+											"key": "role",
+											"value": "clientadmin"
+										},
+										{
+											"key": "startDate",
+											"value": "02-12-2020"
+										},
+										{
+											"key": "endDate",
+											"value": "02-12-2020"
+										},
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get logs by role",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0467e87d-86ee-455d-a0ba-3a8bd83d1e97",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Record(s) retrieved successfully.\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/UserAuditsLog/LogsByRole?role=clientuser&startDate=02-12-2020&endDate=02-12-2020&pageNumber=1&pageSize=10",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"UserAuditsLog",
+										"LogsByRole"
+									],
+									"query": [
+										{
+											"key": "role",
+											"value": "clientuser"
+										},
+										{
+											"key": "startDate",
+											"value": "02-12-2020"
+										},
+										{
+											"key": "endDate",
+											"value": "02-12-2020"
+										},
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get logs by action",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "08e4e41f-62c1-4547-94c0-64c0d74d93d6",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Record(s) retrieved successfully.\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/UserAuditsLog/LogsByAction?action=Delete&startDate=07-12-2020&endDate=07-12-2020&pageNumber=1&pageSize=10",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"UserAuditsLog",
+										"LogsByAction"
+									],
+									"query": [
+										{
+											"key": "action",
+											"value": "Delete"
+										},
+										{
+											"key": "startDate",
+											"value": "07-12-2020"
+										},
+										{
+											"key": "endDate",
+											"value": "07-12-2020"
+										},
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

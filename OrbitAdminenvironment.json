@@ -1,0 +1,74 @@
+{
+	"id": "5baccb87-d879-47cc-9dc3-1d0931c9953a",
+	"name": "Orbit Admin",
+	"values": [
+		{
+			"key": "VGGAdminToken",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "permissionName",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "roleName",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "clientadminemail",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "company",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "Email1",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "Phone",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "appname",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "mail",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "partnercode",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "Fname",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "Lname",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "number",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2020-12-16T07:01:52.498Z",
+	"_postman_exported_using": "Postman/7.36.0"
+}
