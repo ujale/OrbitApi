@@ -1,0 +1,299 @@
+{
+	"id": "77f3e1ed-cbb3-402f-bc06-a21a72bb26ce",
+	"name": "Orbit",
+	"values": [
+		{
+			"key": "orbiturl",
+			"value": "https://orbitclient.test.vggdev.com",
+			"enabled": true
+		},
+		{
+			"key": "companyName",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "password",
+			"value": "C0urtesy!",
+			"enabled": true
+		},
+		{
+			"key": "AdminuseraccessToken",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwczovL3Nzby50ZXN0LnZnZ2Rldi5jb20vaWRlbnRpdHkiLCJhdWQiOiJodHRwczovL3Nzby50ZXN0LnZnZ2Rldi5jb20vaWRlbnRpdHkvcmVzb3VyY2VzIiwiZXhwIjoxNjAzNzk0NTYzLCJuYmYiOjE2MDM3OTA5NjMsImNsaWVudF9pZCI6InZpZ2lwYXkub3JiaXQiLCJzY29wZSI6WyJlbWFpbCIsImlkZW50aXR5LXNlcnZlci1hcGkiLCJvcGVuaWQiLCJwcm9maWxlIiwicm9sZXMiXSwic3ViIjoiOTk3OWQ1MTAtNGY2OC00ODJmLThlMjMtOTcyYmU4NzdlNGI5IiwiYXV0aF90aW1lIjoxNjAzNzkwOTYzLCJpZHAiOiJpZHNydiIsInByZWZlcnJlZF91c2VybmFtZSI6InBvbnRpdXNAeW9wbWFpbC5jb20iLCJlbWFpbCI6InBvbnRpdXNAeW9wbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6InRydWUiLCJwaG9uZV9udW1iZXIiOiIwODAxMTExMTExMSIsInBob25lX251bWJlcl92ZXJpZmllZCI6ImZhbHNlIiwid2ViLmViaXBzLnVzZXIucm9sZSI6ImNsaWVudGFkbWluIiwiYXBwbGljYXRpb24iOlsid2ViLmViaXBzLnVzZXIiLCJ2aWdpcGF5Lm9yYml0Il0sInZpZ2lwYXkub3JiaXQucm9sZSI6ImNsaWVudGFkbWluIiwiZ2l2ZW5fbmFtZSI6IlBvbnRpdSIsImZhbWlseV9uYW1lIjoiUGlsYXRlIiwiYW1yIjpbInBhc3N3b3JkIl19.jtzoMVht58Pp2Dr2mxLyBaERfBeazJZTiBigRN8xWHBUEi-jykkSC7pYADk6GKzhod0vnI_XQ1xbRHu3Wk44nS9gnChmO_eYHDpyyJa1dDKCi9yxPBAPeKG1B634H-jxcz5F0Oq04XjHZvaoCzmvl956lCOD98lnMCxkV0Qk6738J5F33qrOgpguR-WlF3UQ104YZ1rid2JwDXKnpct4WaNYg96ieR_ZifGDvx09eev6WfmBZWmLQ36RW_m3El1ldKxgQGbuObwB5LM2m7QIOP7AdJqhcAoJb9uzrFLJq4XCpapWmgeOb1nly5YKN1o5BUOCSyZcaucJ7nu7zGPUgA",
+			"enabled": true
+		},
+		{
+			"key": "PartnerPayment",
+			"value": "api/PartnerPayment",
+			"enabled": true
+		},
+		{
+			"key": "firstname",
+			"value": "SeH",
+			"enabled": true
+		},
+		{
+			"key": "lastname",
+			"value": "MYo",
+			"enabled": true
+		},
+		{
+			"key": "VGGAdminToken",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwczovL3Nzby50ZXN0LnZnZ2Rldi5jb20vaWRlbnRpdHkiLCJhdWQiOiJodHRwczovL3Nzby50ZXN0LnZnZ2Rldi5jb20vaWRlbnRpdHkvcmVzb3VyY2VzIiwiZXhwIjoxNTkzNTM3Nzc2LCJuYmYiOjE1OTM1MzQxNzYsImNsaWVudF9pZCI6InZpZ2lwYXkub3JiaXQiLCJzY29wZSI6WyJlbWFpbCIsImlkZW50aXR5LXNlcnZlci1hcGkiLCJvcGVuaWQiLCJwcm9maWxlIiwicm9sZXMiXSwic3ViIjoiMzkxMmFiNzQtZGU0MC00ZmFkLTgyZjAtNTA3ZjJiOTY0NWQ1IiwiYXV0aF90aW1lIjoxNTkzNTM0MTc2LCJpZHAiOiJpZHNydiIsInByZWZlcnJlZF91c2VybmFtZSI6InVkZW1lLmJhc3NleUB2ZW50dXJlZ2FyZGVuZ3JvdXAuY29tIiwiZW1haWwiOiJ1ZGVtZS5iYXNzZXlAdmVudHVyZWdhcmRlbmdyb3VwLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjoidHJ1ZSIsInBob25lX251bWJlciI6IjA4MTI2NTE3NzEwIiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjoiZmFsc2UiLCJ2YXRjb2xsZWN0LnJvbGUiOlsidmdnX3VzZXIiLCJBZG1pbmlzdHJhdG9yIl0sImFwcGxpY2F0aW9uIjpbInZhdGNvbGxlY3QiLCJzc291aSIsIlZHR19BUEkxRENGM1ZWM0o1MFQiLCJ3ZWIuZWJpcHMudXNlciIsInN3ZXJ2ZXBheSIsInZpZ2lwYXkub3JiaXQiXSwic3NvdWkucm9sZSI6InZnZ19hZG1pbiIsIndlYi5lYmlwcy51c2VyLnJvbGUiOlsiRUJJUFNfQ29ycG9yYXRlIiwiY2xpZW50dXNlciJdLCJnaXZlbl9uYW1lIjoiVWRlbWUiLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJzd2VydmVwYXkucm9sZSI6WyJTd2VydmVwYXlBZG1pbiIsInZnZ19hZG1pbiIsIkNwQWRtaW4iXSwidmlnaXBheS5vcmJpdC5yb2xlIjoidmdnX2FkbWluIiwiYW1yIjpbInBhc3N3b3JkIl19.RblXdl7IsPPp49U3KeMUkE2mszu6qXU9iXGPpUL4wwmUlulbIb28mnfn5lwZn8XVPUZ_zyoB_aBaCSQK8EcXHheKAR4NhEiFGeOX-7AWMtMS-QWEX9bMPpNmJQWLxU6ivU0E2QE4V4w4qxLw47avyNprwpQnNCQ8jCbvbGQTnKZYgfPk1InIzDFSLkKextD__OPXJgkV7wXaBYegFp1kTFPYH7o3Fj5OMb-39I1ogXj-yldixoSCEUHZtstDbU9KeEj2s958smM7f_vPxH-XvYtFyOmNO5W81bfJb0VRlj_mnYg7qTWVB7osT2Pt_7x7PnfXfTdXveWA62tGDmXWuQ",
+			"enabled": true
+		},
+		{
+			"key": "orbitadminurl",
+			"value": "https://orbitadmin.test.vggdev.com",
+			"enabled": true
+		},
+		{
+			"key": "PartnerstagToken",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwczovL3Nzby50ZXN0LnZnZ2Rldi5jb20vaWRlbnRpdHkiLCJhdWQiOiJodHRwczovL3Nzby50ZXN0LnZnZ2Rldi5jb20vaWRlbnRpdHkvcmVzb3VyY2VzIiwiZXhwIjoxNTkyNzcwNTQ4LCJuYmYiOjE1OTI3NjY5NDgsImNsaWVudF9pZCI6InZpZ2lwYXkub3JiaXQiLCJzY29wZSI6WyJlbWFpbCIsImlkZW50aXR5LXNlcnZlci1hcGkiLCJvcGVuaWQiLCJwcm9maWxlIiwicm9sZXMiXSwic3ViIjoiZmZlMjYwZWItYmRmZS00MDE2LTg5MzMtOTNjNzExNjk0MTVmIiwiYXV0aF90aW1lIjoxNTkyNzY2OTQ4LCJpZHAiOiJpZHNydiIsInByZWZlcnJlZF91c2VybmFtZSI6InBsb3NzeUB5b3BtYWlsLmNvbSIsImVtYWlsIjoicGxvc3N5QHlvcG1haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOiJ0cnVlIiwicGhvbmVfbnVtYmVyIjoiMDgwMTExMTExMTEiLCJwaG9uZV9udW1iZXJfdmVyaWZpZWQiOiJmYWxzZSIsIndlYi5lYmlwcy51c2VyLnJvbGUiOiJjbGllbnRhZG1pbiIsImdpdmVuX25hbWUiOiJQbHVhIiwiZmFtaWx5X25hbWUiOiJ0cmV3cWUiLCJhcHBsaWNhdGlvbiI6WyJ3ZWIuZWJpcHMudXNlciIsInZpZ2lwYXkub3JiaXQiXSwidmlnaXBheS5vcmJpdC5yb2xlIjoiY2xpZW50YWRtaW4iLCJhbXIiOlsicGFzc3dvcmQiXX0.RrO1yOJxMnWD2XqdsSoty_63ftvgzguCfCBzvoRLHSsTkQx4lqTqcT-t6kT86PoDZcVzFjlsVrFwD7fLbg56oq-wuBLhlFixoGAkId2n9mUx4HX_-7HqgDzkGTGz6v95RD8KsHHx6y0DBf3vC6Pplmyck7t5okDVyWt-jm0TvLyWob3g10r2bQie-5uHQXk8vSJS_tGTQsAlvgb1YqUlWfayA0Qv5ivXZvJ6IwlmHyYGxkaUkzlqKC50NMHI4aR7Mqg-pzf0vHNDBb4A7ZXNa_2M9Kooqz-tziUwI-e1u9XdZFSSdMtcFd5feff1oVf25rLzdQp_lJaITIEw1DOI2g",
+			"enabled": true
+		},
+		{
+			"key": "VGGAdminProdToken",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "beneficiaryName",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "permissionName",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "clientadminemail",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "company",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "Phone",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "Email1",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "mail",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "partnercode",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "Fname",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "Lname",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "number",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "channelname",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "VGGAdminStagToken",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "application",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "code",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "namerole",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "PartnerProdToken",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "contactEmail",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "contactFirstName",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "contactLastName",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "email",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "businessCode",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "businessName",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "description",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "PartnerToken",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "firstName",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "lastName",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "UserAccessToken",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "BusinessID",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "altContactNumber",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "businessAddress",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "city",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "pryContactNumber",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "state",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "roleName",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "appname",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "invalidemail",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "Id",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "PartnerStagToken",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "userreference",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "PreprodPartnerToken",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "PartnerToken2",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "VGGUserToken",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "telleradmintoken",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "tellertoken",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "PreprodVGGAdminToken",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "token",
+			"value": "",
+			"enabled": false
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2021-02-24T12:26:17.583Z",
+	"_postman_exported_using": "Postman/8.0.6"
+}

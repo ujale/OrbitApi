@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "aa96544a-2cbd-4f8d-bce6-4943c5374fa9",
-		"name": "Orbit Partner APIs(MVP) Test",
+		"_postman_id": "129e9ca4-e386-4ee6-949d-1b6063e5da56",
+		"name": "Orbit Partner APIs(MVP) Test Jenkins",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -14,7 +14,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6a333ef8-048f-4b81-90e4-8f7d9ba3497d",
 								"exec": [
 									"//Set access token as environment variable\r",
 									"var body = JSON.parse(responseBody);\r",
@@ -67,7 +66,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "637794d1-43c5-46af-9bf5-643f8424b549",
 								"exec": [
 									"//Set access token as environment variable\r",
 									"var body = JSON.parse(responseBody);\r",
@@ -93,10 +91,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"gutem@yopmail.com\",\r\n  \"password\": \"UEBzc3cwcmQ=\"\r\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"email\": \"gutem@yopmail.com\",\r\n  \"password\": \"UEBzc3cwcmQ=\"\r\n}"
 						},
 						"url": {
 							"raw": "https://orbitclient.test.vggdev.com/api/v1/Account/login",
@@ -123,7 +118,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e39047e9-1cfa-4e31-8eee-ca6c96a98eff",
 								"exec": [
 									"\r",
 									"pm.test(\"Status code is 400\", function () {\r",
@@ -149,10 +143,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"ywet12@yopmail.com\",\r\n  \"password\": \"UEBzc3cwcmQx\"\r\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"email\": \"ywet12@yopmail.com\",\r\n  \"password\": \"UEBzc3cwcmQx\"\r\n}"
 						},
 						"url": {
 							"raw": "https://orbitclient.test.vggdev.com/api/v1/Account/login",
@@ -179,7 +170,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e95066cf-8393-48e1-98c6-efeb751d67be",
 								"exec": [
 									"\r",
 									"pm.test(\"Status code is 400\", function () {\r",
@@ -205,10 +195,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"slings@yopmail.com\",\r\n  \"password\": \"UEBzc3cwcmQx\"\r\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"email\": \"slings@yopmail.com\",\r\n  \"password\": \"UEBzc3cwcmQx\"\r\n}"
 						},
 						"url": {
 							"raw": "https://orbitclient.test.vggdev.com/api/v1/Account/login",
@@ -235,7 +222,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8b4dd61e-c12c-4bc6-b8a0-2194d4ee7bf6",
 								"exec": [
 									"\r",
 									"pm.test(\"Status code is 400\", function () {\r",
@@ -261,10 +247,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"tweet12@yopmail.com\",\r\n  \"password\": \"UEBzc3cwcmQx\"\r\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"email\": \"tweet12@yopmail.com\",\r\n  \"password\": \"UEBzc3cwcmQx\"\r\n}"
 						},
 						"url": {
 							"raw": "https://orbitclient.test.vggdev.com/api/v1/Account/login",
@@ -291,7 +274,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "06adc4b8-6611-41d5-ac96-015c8977b009",
 								"exec": [
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"Base 64 encoded successfully\");\r",
@@ -337,7 +319,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "2b9bb4e9-80d7-47ab-b88f-81864db995aa",
 								"exec": [
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"Base 64 encoded successfully\");\r",
@@ -383,7 +364,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b8ea03a1-af4c-47a2-87d3-f9a754e98706",
 								"exec": [
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"Base 64 decoded successfully\");\r",
@@ -423,8 +403,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Onboarding",
@@ -435,7 +414,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c6ad973b-a268-4915-9529-c3d141020486",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -452,7 +430,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "bab92cab-1332-4804-bf5d-929bf2ad59ff",
 								"exec": [
 									"//Generate random name\r",
 									"function xter(length) {\r",
@@ -491,7 +468,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"applicationName\": \"{{application}}\",\r\n  \"description\": \"describe\",\r\n  \"firstName\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\",\r\n  \"email\": \"{{$randomFirstName}}@yopmail.com\",\r\n  \"password\": \"P@ssword1\",\r\n  \"mobileNumber\": \"09123498780\",\r\n  \"code\": \"{{code}}\"\r\n}",
+							"raw": "{\r\n  \"applicationName\": \"{{application}}\",\r\n  \"description\": \"describe\",\r\n  \"firstName\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\",\r\n  \"email\": \"{{$randomFirstName}}@yopmail.com\",\r\n  \"password\": \"UEBzc3cwcmQ=\",\r\n  \"mobileNumber\": \"09123498780\",\r\n  \"code\": \"{{code}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -522,7 +499,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "17594b0a-dca6-4ad2-b327-53096ae6a680",
 								"exec": [
 									"pm.test(\"Status code is 404\", function () {\r",
 									"    pm.response.to.have.status(404);\r",
@@ -585,8 +561,7 @@
 									"    pm.response.to.have.status(404);\r",
 									"});\r",
 									""
-								],
-								"id": "a6783aa5-66b0-4d90-b949-181c1d1fe06c"
+								]
 							}
 						}
 					],
@@ -636,7 +611,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "63ee0110-e5f8-4f55-b525-a290d4055432",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
@@ -664,7 +638,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"applicationName\": \"Dly time\",\r\n  \"description\": \"describe\",\r\n  \"firstName\": \"Don\",\r\n  \"lastName\": \"Fly\",\r\n  \"email\": \"te12@yopmail.com\",\r\n  \"password\": \"P@ssw0rd\",\r\n  \"mobileNumber\": \"09123498780\",\r\n  \"code\": \"TI7\"\r\n}",
+							"raw": "{\r\n  \"applicationName\": \"Dly time\",\r\n  \"description\": \"describe\",\r\n  \"firstName\": \"Don\",\r\n  \"lastName\": \"Fly\",\r\n  \"email\": \"te12@yopmail.com\",\r\n  \"password\": \"UEBzc3cwcmQ=\",\r\n  \"mobileNumber\": \"09123498780\",\r\n  \"code\": \"TI7\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -695,7 +669,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c6748694-5685-431e-805e-ec73c92b6c30",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
@@ -723,7 +696,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"applicationName\": \"ily time\",\r\n  \"description\": \"describe\",\r\n  \"firstName\": \"Don\",\r\n  \"lastName\": \"Fly\",\r\n  \"email\": \"time12@yopmail.com\",\r\n  \"password\": \"P@ssw0rd\",\r\n  \"mobileNumber\": \"09123498780\",\r\n  \"code\": \"WQEo\"\r\n}",
+							"raw": "{\r\n  \"applicationName\": \"ily time\",\r\n  \"description\": \"describe\",\r\n  \"firstName\": \"Don\",\r\n  \"lastName\": \"Fly\",\r\n  \"email\": \"time12@yopmail.com\",\r\n  \"password\": \"UEBzc3cwcmQ=\",\r\n  \"mobileNumber\": \"09123498780\",\r\n  \"code\": \"WQEo\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -754,7 +727,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "120904b9-1646-4e24-bef2-110e35441501",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
@@ -822,8 +794,7 @@
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"The Email field is required.\");\r",
 									"});"
-								],
-								"id": "c8b6d9f1-b197-482a-89dd-214abf51ff85"
+								]
 							}
 						}
 					],
@@ -881,8 +852,7 @@
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"The ApplicationName field is required.; Application Name should be more than 6 characters\");\r",
 									"});"
-								],
-								"id": "f104dc16-6a0d-4122-b235-3a8df418f287"
+								]
 							}
 						}
 					],
@@ -940,8 +910,7 @@
 									"pm.test(\"Body contains string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"The Password field is required.\");\r",
 									"});"
-								],
-								"id": "86609d37-0208-4e8d-8ef5-e14666a5c3b4"
+								]
 							}
 						}
 					],
@@ -999,8 +968,7 @@
 									"pm.test(\"Body contains string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"The MobileNumber field is required.\");\r",
 									"});"
-								],
-								"id": "9de1dcbe-8cfe-45c3-b5de-a234f5c78097"
+								]
 							}
 						}
 					],
@@ -1058,8 +1026,7 @@
 									"pm.test(\"Body contains string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"The LastName field is required.; The FirstName field is required.\");\r",
 									"});"
-								],
-								"id": "81cb5936-84c8-400e-b05a-a37bece919f0"
+								]
 							}
 						}
 					],
@@ -1109,7 +1076,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ea86a5a3-5cf8-490e-8565-86e382e06156",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
@@ -1168,7 +1134,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3835e221-9392-444c-97f7-8aec9b178c0e",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
@@ -1227,7 +1192,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "337dd516-86ad-45e9-b4d6-290403d4d807",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
@@ -1286,7 +1250,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "59c53c20-07fc-400c-9106-5e4aaad134b3",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
@@ -1339,8 +1302,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Change/Forgot/Reset Password",
@@ -1454,8 +1416,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Approve Partner",
@@ -1466,7 +1427,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "751044ce-407b-4254-8c06-db84d60b7676",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
@@ -1544,7 +1504,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a9fa5603-950d-489a-a38c-23115391be27",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
@@ -1631,8 +1590,7 @@
 									"pm.test(\"Body matches string\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"Partner does not exist\");",
 									"});"
-								],
-								"id": "7aca5b75-f10b-470c-a41f-cf04205a8e04"
+								]
 							}
 						}
 					],
@@ -1700,7 +1658,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "eac7c71b-cd4d-4762-848f-c130dffa5837",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
@@ -1772,8 +1729,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Reject Partner",
@@ -1792,8 +1748,7 @@
 									"pm.test(\"Body matches string\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"Partner is active on Orbit and cannot be rejected.\");",
 									"});"
-								],
-								"id": "bf0eb6d7-460a-4e6e-aedb-4627000247b4"
+								]
 							}
 						}
 					],
@@ -1870,8 +1825,7 @@
 									"    pm.expect(pm.response.text()).to.include(\"Partner already rejected\");",
 									"});",
 									""
-								],
-								"id": "ffda63bf-cc0f-4972-9281-811f16db1068"
+								]
 							}
 						}
 					],
@@ -1945,8 +1899,7 @@
 									"    pm.response.to.have.status(400);",
 									"});",
 									""
-								],
-								"id": "757e5d36-0b69-4773-b037-b7c5cf1998aa"
+								]
 							}
 						}
 					],
@@ -2014,7 +1967,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6531df86-2545-4caf-b9c0-536f0761a568",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
@@ -2083,8 +2035,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Profile Account",
@@ -2095,7 +2046,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "2b4f0312-7de3-4d59-b05a-334466f6c50f",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -2133,15 +2083,12 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ff1b4685-22dc-43df-b2f4-3fc228f48a99",
 								"exec": [
 									"\r",
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
 									"});\r",
-									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"Account Number already exists for this Partner\");\r",
-									"});"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -2169,10 +2116,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"6170185339\",\r\n  \"accountName\": \"ORBIT TEST ACCOUNT\",\r\n  \"bankId\": 5,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 10\r\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"accountNumber\": \"6170185339\",\r\n  \"accountName\": \"ORBIT TEST ACCOUNT\",\r\n  \"bankId\": 5,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 10\r\n}"
 						},
 						"url": {
 							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/Create",
@@ -2198,15 +2142,12 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "75fb7729-75a6-402c-a953-62a581b1882f",
 								"exec": [
 									"\r",
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
 									"});\r",
-									"pm.test(\"Message matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"Account Number already exists for this Partner\");\r",
-									"});"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -2234,10 +2175,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"1005817941\",\r\n  \"accountName\": \"ORBIT TEST ACCOUNT\",\r\n  \"bankId\": 22,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 9\r\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"accountNumber\": \"1005817941\",\r\n  \"accountName\": \"ORBIT TEST ACCOUNT\",\r\n  \"bankId\": 22,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 9\r\n}"
 						},
 						"url": {
 							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/Create",
@@ -2263,7 +2201,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8a504978-1dde-4724-a968-9d5cb4e21f86",
 								"exec": [
 									"\r",
 									"pm.test(\"Status code is 400\", function () {\r",
@@ -2296,10 +2233,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"1005817941\",\r\n  \"accountName\": \"ORBIT TEST ACCOUNT\",\r\n  \"bankId\": ,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 9\r\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"accountNumber\": \"1005817941\",\r\n  \"accountName\": \"ORBIT TEST ACCOUNT\",\r\n  \"bankId\": ,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 9\r\n}"
 						},
 						"url": {
 							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/Create",
@@ -2325,7 +2259,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "32dc1998-bbcd-44da-93cd-8c377fdad738",
 								"exec": [
 									"\r",
 									"pm.test(\"Status code is 400\", function () {\r",
@@ -2358,10 +2291,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"resonateoo\",\r\n  \"accountName\": \"ORBIT TEST ACCOUNT\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 8\r\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"accountNumber\": \"resonateoo\",\r\n  \"accountName\": \"ORBIT TEST ACCOUNT\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 8\r\n}"
 						},
 						"url": {
 							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/Create",
@@ -2387,7 +2317,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "94e83192-dc2e-4696-ac2b-3df5c19da2de",
 								"exec": [
 									"\r",
 									"pm.test(\"Status code is 400\", function () {\r",
@@ -2423,10 +2352,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"res345o\",\r\n  \"accountName\": \"ORBIT TEST ACCOUNT\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 8\r\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"accountNumber\": \"res345o\",\r\n  \"accountName\": \"ORBIT TEST ACCOUNT\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 8\r\n}"
 						},
 						"url": {
 							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/Create",
@@ -2452,7 +2378,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7ab514b3-f8c2-4e58-8952-335a5fd1f0a5",
 								"exec": [
 									"\r",
 									"pm.test(\"Status code is 400\", function () {\r",
@@ -2488,10 +2413,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"\",\r\n  \"accountName\": \"ORBIT TEST ACCOUNT\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 8\r\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"accountNumber\": \"\",\r\n  \"accountName\": \"ORBIT TEST ACCOUNT\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 8\r\n}"
 						},
 						"url": {
 							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/Create",
@@ -2517,7 +2439,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e9443929-34c5-4489-a47a-01f81417c601",
 								"exec": [
 									"\r",
 									"pm.test(\"Status code is 400\", function () {\r",
@@ -2553,75 +2474,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"1005847601\",\r\n  \"accountName\": \"\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 8\r\n}",
-							"options": {
-								"raw": {}
-							}
-						},
-						"url": {
-							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/Create",
-							"protocol": "https",
-							"host": [
-								"orbitclient",
-								"test",
-								"vggdev",
-								"com"
-							],
-							"path": [
-								"api",
-								"PartnerAccounts",
-								"Create"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Profile Debit Account(no comment)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "a8e414f9-fc84-4cb4-8fbc-1f7e278e5bd4",
-								"exec": [
-									"\r",
-									"pm.test(\"Status code is 400\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});\r",
-									"pm.test(\"Message matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"Debit account lookup failed\");\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{PartnerToken}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"0239912010\",\r\n  \"accountName\": \"tester test\",\r\n  \"bankId\": 7,\r\n  \"comment\": \"test\",\r\n  \"providerGatewayId\": 1\r\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"accountNumber\": \"1005847601\",\r\n  \"accountName\": \"\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"ORBIT Partner Account creation test\",\r\n  \"providerGatewayId\": 8\r\n}"
 						},
 						"url": {
 							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/Create",
@@ -2647,7 +2500,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a6ea7a89-2804-44f4-bea0-d14f2a7bc33f",
 								"exec": [
 									"\r",
 									"pm.test(\"Status code is 400\", function () {\r",
@@ -2683,10 +2535,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"1005847601\",\r\n  \"accountName\": \"tester test\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"1+1\",\r\n  \"providerGatewayId\": 8\r\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"accountNumber\": \"1005847601\",\r\n  \"accountName\": \"tester test\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"1+1\",\r\n  \"providerGatewayId\": 8\r\n}"
 						},
 						"url": {
 							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/Create",
@@ -2712,7 +2561,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "885b32f1-6304-4a19-a1b5-e57f0549b663",
 								"exec": [
 									"\r",
 									"pm.test(\"Status code is 400\", function () {\r",
@@ -2746,10 +2594,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"1005847601\",\r\n  \"accountName\": \"tester test\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"test\",\r\n  \"providerGatewayId\": \r\n}\r\n",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"accountNumber\": \"1005847601\",\r\n  \"accountName\": \"tester test\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"test\",\r\n  \"providerGatewayId\": \r\n}\r\n"
 						},
 						"url": {
 							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/Create",
@@ -2775,7 +2620,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e4ad488b-0f04-4463-9704-15700ad62d29",
 								"exec": [
 									"\r",
 									"pm.test(\"Status code is 400\", function () {\r",
@@ -2811,10 +2655,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"accountNumber\": \"1005847601\",\r\n  \"accountName\": \"tester test\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"test\",\r\n  \"providerGatewayId\": -7\r\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"accountNumber\": \"1005847601\",\r\n  \"accountName\": \"tester test\",\r\n  \"bankId\": 19,\r\n  \"comment\": \"test\",\r\n  \"providerGatewayId\": -7\r\n}"
 						},
 						"url": {
 							"raw": "https://orbitclient.test.vggdev.com/api/PartnerAccounts/Create",
@@ -2834,8 +2675,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Payout",
@@ -2846,7 +2686,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "544b6620-e9cb-49fc-bf1e-ed3428d0ffaa",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -2879,12 +2718,96 @@
 					"response": []
 				},
 				{
+					"name": "Payout (invalid beneficiary account)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Body contains string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Beneficiary Account number should be 10 digit\");",
+									"    ",
+									"});pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//Generate random number\r",
+									"function num(length) {\r",
+									"  var result1           = '';\r",
+									"  var numbers       = '0123456789';\r",
+									"  var numbersLength = numbers.length;\r",
+									"  for ( var i = 0; i < length; i++ ) {\r",
+									"     result1 += numbers.charAt(Math.floor(Math.random() * numbersLength));\r",
+									"  }\r",
+									"  return result1;\r",
+									"}\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"postman.setEnvironmentVariable(\"userreference\", num(7));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{PartnerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"debitAccountBankCode\": \"070\",\r\n  \"debitAccountNumber\": \"6170185339\",\r\n  \"beneficiaryAccountNumber\": \"0188440\",\r\n  \"beneficiaryBankCode\": \"070\",\r\n  \"amount\": 10,\r\n  \"narration\": \"Testing payout1\",\r\n  \"paymentChannel\": 1,\r\n  \"userReference\": \"{{userreference}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://orbitclient.test.vggdev.com/api/PartnerPayment/PayOutSingle",
+							"protocol": "https",
+							"host": [
+								"orbitclient",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"PartnerPayment",
+								"PayOutSingle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Payout (valid)",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "43bc62f3-c5e7-4be6-9ff6-47c057ed0a5b",
 								"exec": [
 									"",
 									"pm.test(\"Body contains string\", function () {",
@@ -2902,7 +2825,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "ca0918be-3266-4634-b885-d4ff0a144af3",
 								"exec": [
 									"//Generate random number\r",
 									"function num(length) {\r",
@@ -2965,8 +2887,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Query User Txn Reference",
@@ -2977,7 +2898,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ef50719a-d3e6-40c9-a85c-8b2251395230",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -3046,8 +2966,7 @@
 									"pm.test(\"Body matches string\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"User Reference is required\");",
 									"});"
-								],
-								"id": "5a1170db-de42-4136-9f6e-69f753587788"
+								]
 							}
 						}
 					],
@@ -3081,7 +3000,7 @@
 							"query": [
 								{
 									"key": "UserReference",
-									"value": null
+									"value": ""
 								}
 							]
 						}
@@ -3093,7 +3012,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "18a42b2c-17b8-4de7-ba52-2f5c94ebd193",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -3103,15 +3021,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "25e7cfa3-ef3d-447b-bd22-71cbaa3db9da",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Activate Partner",
@@ -3128,8 +3044,7 @@
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									""
-								],
-								"id": "492d002f-52cc-44b9-91eb-0928c16d3665"
+								]
 							}
 						}
 					],
@@ -3181,8 +3096,7 @@
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
 									"});"
-								],
-								"id": "ca02594f-3f4b-4e6e-8759-d047ec55d800"
+								]
 							}
 						}
 					],
@@ -3234,8 +3148,7 @@
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
 									"});"
-								],
-								"id": "b3eb4d0e-02cf-4d42-b2f0-2f11f04e23f9"
+								]
 							}
 						}
 					],
@@ -3276,8 +3189,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Deactivate Partner",
@@ -3288,7 +3200,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "10f9ca2a-2084-43b1-b621-79bba1ec85e5",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -3350,8 +3261,7 @@
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"Invalid Partner Id\");\r",
 									"});"
-								],
-								"id": "5250da44-ecb1-4dee-89f8-78737ba6dee8"
+								]
 							}
 						}
 					],
@@ -3392,8 +3302,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Account Balance (FIDELITY)",
@@ -3404,7 +3313,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "876e899f-ef0c-429b-9639-affbd7e8b955",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -3442,7 +3350,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "058b1f43-89a8-44c2-b5ff-1131b25e5f6c",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -3514,8 +3421,7 @@
 									"",
 									"",
 									""
-								],
-								"id": "24633857-e5b4-4bde-b097-fb67be5db82e"
+								]
 							}
 						}
 					],
@@ -3576,8 +3482,7 @@
 									"",
 									"",
 									""
-								],
-								"id": "e20be970-0134-4954-afc7-aae55c1d3cf0"
+								]
 							}
 						}
 					],
@@ -3663,8 +3568,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Account Statement (FIDELITY) Copy",
@@ -3680,8 +3584,7 @@
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});"
-								],
-								"id": "77d594ed-2029-41ee-b99c-0a35dd05d871"
+								]
 							}
 						}
 					],
@@ -3713,7 +3616,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1f4bce38-b6d2-492e-81ab-9b76dc89fbf3",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -3782,8 +3684,7 @@
 									"pm.test(\"Body contains string\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"Invalid Bank Code\");",
 									"});"
-								],
-								"id": "42941762-ad5e-4a31-bb95-bab419f046af"
+								]
 							}
 						}
 					],
@@ -3833,17 +3734,16 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
 									"});",
 									"",
 									"pm.test(\"Body contains string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"Account number is not profiled\");",
+									"    pm.expect(pm.response.text()).to.include(\"Debit account not profiled on Orbit\");",
 									"});"
 								],
-								"id": "71cb1819-c68d-4d27-ac32-338d01bdc2eb"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3902,8 +3802,7 @@
 									"pm.test(\"Body contains string\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"BankCode field is requred\");",
 									"});"
-								],
-								"id": "44dc31ef-8653-4c26-9085-8c651070c386"
+								]
 							}
 						}
 					],
@@ -3962,8 +3861,7 @@
 									"pm.test(\"Body contains string\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"AccNumber field is requred\");",
 									"});"
-								],
-								"id": "5611fc7b-2365-4e55-a826-ade02d34651e"
+								]
 							}
 						}
 					],
@@ -4007,8 +3905,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Get Profiled Account ",
@@ -4019,7 +3916,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6fa532a8-8442-4390-b542-747cd2960761",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -4079,8 +3975,7 @@
 									"pm.test(\"Body matches string\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"Record(s) retrieved successfully.\");",
 									"});"
-								],
-								"id": "d78927b0-0da5-45f8-bc0f-3a32b4918dd5"
+								]
 							}
 						}
 					],
@@ -4134,8 +4029,7 @@
 									"});",
 									"",
 									""
-								],
-								"id": "1ed9cfb7-ae6b-475e-b6ed-917487a2bee9"
+								]
 							}
 						}
 					],
@@ -4159,15 +4053,14 @@
 							"query": [
 								{
 									"key": "corporateId",
-									"value": null
+									"value": ""
 								}
 							]
 						}
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Get Partner",
@@ -4239,8 +4132,7 @@
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"User is unauthorised\");\r",
 									"});"
-								],
-								"id": "56b42398-80f7-4e9d-8729-b7eff524c881"
+								]
 							}
 						}
 					],
@@ -4296,8 +4188,7 @@
 									"    pm.response.to.have.status(404);\r",
 									"});\r",
 									""
-								],
-								"id": "458e73af-36f9-4207-b07b-888681bca570"
+								]
 							}
 						}
 					],
@@ -4351,8 +4242,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Activate Partner Account",
@@ -4363,7 +4253,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c47a40e7-4640-4dd9-bbd4-edb337bcaeba",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -4429,8 +4318,7 @@
 									"    pm.expect(pm.response.text()).to.include(\"Kindly enter a valid Account Id\");\r",
 									"});\r",
 									""
-								],
-								"id": "25e8e997-09bf-48af-9fb9-e098bbac6635"
+								]
 							}
 						}
 					],
@@ -4486,8 +4374,7 @@
 									"    pm.expect(pm.response.text()).to.include(\"Kindly enter a valid Account Id\");\r",
 									"});\r",
 									""
-								],
-								"id": "ad5c9354-3a42-4dee-9bb8-734def996c09"
+								]
 							}
 						}
 					],
@@ -4528,8 +4415,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Deactivate Partner Account",
@@ -4540,7 +4426,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7a868639-391a-41d9-85ca-cb077b1831a7",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -4608,8 +4493,7 @@
 									"    pm.expect(pm.response.text()).to.include(\"Partner Account Id is required\");\r",
 									"});\r",
 									""
-								],
-								"id": "a190d194-3b8f-4b24-b7df-54adf4cc542a"
+								]
 							}
 						}
 					],
@@ -4668,8 +4552,7 @@
 									"    pm.expect(pm.response.text()).to.include(\"Partner Account Id is required\");\r",
 									"});\r",
 									""
-								],
-								"id": "de17157b-4eea-417a-bee7-661ceb84c00e"
+								]
 							}
 						}
 					],
@@ -4713,8 +4596,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Bank Account Setting",
@@ -4874,9 +4756,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Create keys",
@@ -4887,7 +4767,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "614186d3-b6bb-4763-aaa6-1280f9e0d351",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -4946,7 +4825,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8602539c-c70b-441c-a07f-cb4eb6b6aa81",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -5005,7 +4883,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3346ddb2-37fd-417b-a36c-615c854d79e8",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -5064,13 +4941,12 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8e2b73e4-f6c6-47a7-92fc-45b92d4fb8fc",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"The AccountNumber field is required.\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"Account number is required; Account number should be 10 digit\");\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -5123,13 +4999,12 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "63cc00f4-dfad-48a3-829c-c3a64a8ad73d",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Account 8862882 has not been profiled for this partner\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"Account number should be 10 digit\");\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -5182,7 +5057,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a597613c-419d-44b2-8266-88af60e540e0",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -5241,7 +5115,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d7e0529a-562b-47a8-8887-33df0945c7ff",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -5300,13 +5173,12 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "dd966958-e5ec-45a0-a786-ae3c57d988e2",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"The Name field is required.; The Value field is required.; The PartnerCode field is required.; The AccountNumber field is required.\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"The Name field is required.; The Value field is required.; The PartnerCode field is required.; Account number is required; Account number should be 10 digit\");\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -5359,7 +5231,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ffdbd105-7cfa-4554-a236-3581f6beda51",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -5412,9 +5283,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Get Key by account number & partner code",
@@ -5425,7 +5294,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "818dcd1a-a0ef-4f4a-9cfa-9efc8f6528a3",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -5482,7 +5350,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "bef264f2-727c-4d65-8b44-d448d8ecde3c",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -5542,7 +5409,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e933804d-68af-4485-88c5-d6531d560f2c",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -5602,7 +5468,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ea272a4f-7925-4df6-9b44-c8deff967e0d",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -5662,7 +5527,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "039bcdfb-94ba-4fd1-a0aa-3f7e092f1df2",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -5759,9 +5623,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Update Keys",
@@ -5772,7 +5634,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "643d7f31-7a84-4d6e-9751-e88f68b7187e",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -5831,7 +5692,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "566e3128-dd28-449e-97a3-8645d604ad99",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -5890,7 +5750,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "33e975c5-9c2c-4c02-9182-431333f50bde",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -5946,7 +5805,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d2d868eb-c495-4831-b038-3fe841a52249",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -6002,13 +5860,12 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f970fce4-bfec-4826-b809-1b8534506314",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"The AccountNumber field is required.\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"Account number is required; Account number should be 10 digit\");\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -6061,7 +5918,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ee8a28e1-83aa-4677-a4ec-d178d803c272",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -6111,12 +5967,9 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Get all banks",
@@ -6172,7 +6025,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "5a4aff49-a22b-4866-a2b5-32a275a78b95",
 						"exec": [
 							"//Set access token as environment variable\r",
 							"var body = JSON.parse(responseBody);\r",
@@ -6221,6 +6073,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

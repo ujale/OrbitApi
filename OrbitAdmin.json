@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7a1becff-d05f-4156-8238-364f14e506cb",
+		"_postman_id": "33371026-d178-4e36-91a2-be3a751c2b79",
 		"name": "Orbit Admin for Jenkins",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -14,7 +14,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5e5c3415-3c2a-4029-a214-0e18669c8562",
+								"type": "text/javascript",
 								"exec": [
 									"//Set access token as environment variable\r",
 									"var body = JSON.parse(responseBody);\r",
@@ -26,8 +26,7 @@
 									"    pm.expect(pm.response.text()).to.include(\"Successful\");\r",
 									"});\r",
 									""
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
@@ -130,7 +129,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3762315d-fe62-4245-b7dc-6f7b97fa35bc",
+								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
@@ -138,8 +137,7 @@
 									"pm.test(\"Body contains string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"Password is required; Email is required\");\r",
 									"});"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
@@ -179,7 +177,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "74af366f-bcb9-4be3-8a58-57f171c2deb5",
+								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
@@ -187,8 +185,7 @@
 									"pm.test(\"Body contains string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"Record does not exist\");\r",
 									"});"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
@@ -222,8 +219,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Bank Partners",
@@ -234,7 +230,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "80f7123b-9034-4762-8415-f971cef49309",
+								"type": "text/javascript",
 								"exec": [
 									"const body = JSON.parse (responseBody);\r",
 									"\r",
@@ -247,8 +243,7 @@
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(body.responseData[1].name).to.eql(\"ORBIT\");\r",
 									"});"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
@@ -278,7 +273,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "50aced43-84f9-4d8e-a40f-18a80b5d44ff",
+								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -287,8 +282,7 @@
 									"    pm.expect(pm.response.text()).to.include(\"ORBIT\");\r",
 									"});\r",
 									""
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
@@ -319,8 +313,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Bank",
@@ -331,7 +324,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f0fe195a-0f67-4057-8f16-c38a5fdff49a",
+								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -339,8 +332,7 @@
 									"pm.test(\"Body contains string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"Zenith Bank\");\r",
 									"});"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
@@ -370,16 +362,17 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "fea2b778-354d-4eee-8bce-e87c81bef5e7",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
-									"pm.test(\"Body contains string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"Zenith Bank\");\r",
+									"\r",
+									"const body = JSON.parse(responseBody);\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(body.responseData.profiledBanks[0].name).to.eql(\"FCMB\");\r",
 									"});\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"countOfProfiledBanks\");\r",
+									"    pm.expect(body.responseData.countOfProfiledBanks).to.eql(14);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -407,8 +400,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Permission",
@@ -422,7 +414,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "083e35a3-f3e4-40c3-a5cd-f62f0bbbe517",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -430,8 +422,7 @@
 											"pm.test(\"Body contains string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Payout\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -471,7 +462,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "531f645e-6214-49c5-a431-f09264cdebc1",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -479,8 +470,7 @@
 											"pm.test(\"Body contains string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Business\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -517,9 +507,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Create Permission",
@@ -530,13 +518,12 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "38d885bb-246c-46e7-a405-8e49b0c77fd7",
 										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"pm.test(\"Body contains string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"This is a test permission\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"Schedule already exist\");\r",
 											"});\r",
 											""
 										],
@@ -546,7 +533,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "5d455086-be50-413b-affc-2fa26faf6680",
 										"exec": [
 											"//Generate random name\r",
 											"function xter(length) {\r",
@@ -582,7 +568,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"permissionName\": \"{{permissionName}}\",\r\n  \"permissionDescription\": \"This is a test permission\"\r\n}",
+									"raw": "{\r\n  \"permissionName\": \"Schedule\",\r\n  \"permissionDescription\": \"This is a test permission\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -612,7 +598,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0e97303f-db91-440d-9918-c94f84fa767d",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -620,8 +606,7 @@
 											"pm.test(\"Body contains string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Permission name should not be more than 50 characters\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -670,13 +655,12 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "53d51ccb-0575-4edc-a9b8-bb0fad8a6d35",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -725,7 +709,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7b213cdf-79c4-4b66-9683-7d44b3621450",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -733,8 +717,7 @@
 											"pm.test(\"Body matches string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Permission Name is required\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -777,9 +760,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Search Permission",
@@ -790,13 +771,12 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8fd4a1b5-0ecd-4e24-8f03-6bd7892ce5d9",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -832,69 +812,18 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Activate permission",
 					"item": [
-						{
-							"name": "Activate Permission(valid permission)",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "fa371e4a-cf2c-4218-bc51-8a600d3d301c",
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{VGGAdminToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [],
-								"url": {
-									"raw": "https://orbitadmin.test.vggdev.com/api/Permissions/44/activate",
-									"protocol": "https",
-									"host": [
-										"orbitadmin",
-										"test",
-										"vggdev",
-										"com"
-									],
-									"path": [
-										"api",
-										"Permissions",
-										"44",
-										"activate"
-									]
-								}
-							},
-							"response": []
-						},
 						{
 							"name": "Activate Permission(already active permission)",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "3407789e-189e-4de4-ac9a-486b5edb781f",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -902,8 +831,7 @@
 											"pm.test(\"Body matches string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Permission already active\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -945,14 +873,13 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4fc6a75b-cfa9-4693-a738-f9f6d5d93843",
+										"type": "text/javascript",
 										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(404);\r",
+											"pm.test(\"Status code is 405\", function () {\r",
+											"    pm.response.to.have.status(405);\r",
 											"});\r",
 											""
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -987,23 +914,20 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Deactivate permission",
 					"item": [
 						{
-							"name": "Deactivate Permission(valid details)",
+							"name": "Deactivate Permission(non existing)",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "bf884f09-88e3-4a01-8588-6af3aee3ed5d",
 										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -1048,14 +972,13 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "25d5657b-c9d3-40d8-b444-92e920f7945f",
+										"type": "text/javascript",
 										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(404);\r",
+											"pm.test(\"Status code is 405\", function () {\r",
+											"    pm.response.to.have.status(405);\r",
 											"});\r",
 											""
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -1090,12 +1013,9 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Roles",
@@ -1109,7 +1029,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f5127d8e-8018-40a2-a254-0209047f76de",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -1117,8 +1037,7 @@
 											"pm.test(\"Body matches string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Role has been created successfully.\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -1161,67 +1080,8 @@
 								}
 							},
 							"response": []
-						},
-						{
-							"name": "Create Role (invalid corporate id)",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "9cc96c0d-b92f-4957-8745-1713ae899c9a",
-										"exec": [
-											"pm.test(\"Status code is 400\", function () {\r",
-											"    pm.response.to.have.status(400);\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{VGGAdminToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"roleName\": \"{{roleName}}\",\r\n  \"description\": \"This is a client admin role\",\r\n  \"roleType\": \"clientuser\",\r\n  \"corporateId\": -2\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "https://orbitadmin.test.vggdev.com/api/v1/Roles",
-									"protocol": "https",
-									"host": [
-										"orbitadmin",
-										"test",
-										"vggdev",
-										"com"
-									],
-									"path": [
-										"api",
-										"v1",
-										"Roles"
-									]
-								}
-							},
-							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Activate Role",
@@ -1232,16 +1092,15 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "29c43b05-c29e-4489-929a-36ce0443c76e",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Role is already active\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"Role has been activated successfully.\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -1298,7 +1157,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "76fd241b-a62e-4594-b154-f5cd44d4e919",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -1306,8 +1165,7 @@
 											"pm.test(\"Body matches string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Role is already active\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -1364,7 +1222,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "9cc82a2e-5823-4979-9694-16462ff98f55",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -1372,8 +1230,7 @@
 											"pm.test(\"Body matches string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Invalid Role Id\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -1417,7 +1274,7 @@
 									"query": [
 										{
 											"key": "Id",
-											"value": null
+											"value": ""
 										}
 									]
 								}
@@ -1429,7 +1286,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "6e707622-fc0b-4595-85c0-4d4749b5cb82",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -1439,16 +1295,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "bd91e2e3-523e-48d0-b66e-ff1fe15b3157",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Deactivate Role",
@@ -1459,7 +1312,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "96a65cc1-9c54-425f-a907-6714d2090d6f",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -1467,8 +1320,7 @@
 											"pm.test(\"Body matches string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Role has been deactivated successfully.\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -1519,7 +1371,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d8a6d916-37ce-4cfa-8175-e2b249734755",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -1527,8 +1379,7 @@
 											"pm.test(\"Body matches string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Role is already inactive\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -1579,7 +1430,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f0637a75-9448-4571-9a6b-04e79efca418",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -1587,8 +1438,7 @@
 											"pm.test(\"Body matches string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Invalid Role Id\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -1638,7 +1488,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "17db643c-6268-4788-95c5-5de1afa93d61",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -1648,16 +1497,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6a8d45f2-d45b-48a8-a0d4-314f629811e5",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Get Role",
@@ -1668,13 +1514,12 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e2c3c92f-a652-40a4-8b16-7344a02d7b1e",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -1716,7 +1561,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "66c0e9d6-807a-414d-b2b8-36aae358d2e0",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -1724,8 +1569,7 @@
 											"pm.test(\"Body contains string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Roles\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -1768,7 +1612,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "9ca1da70-b6e6-4b50-91c9-7a22b4f3d270",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -1776,8 +1620,7 @@
 											"pm.test(\"Body contains string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"vgg_admin\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -1803,9 +1646,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Update Role",
@@ -1816,7 +1657,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "049ab2ee-2127-4625-80c4-18677a9a3518",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -1825,14 +1666,13 @@
 											"    pm.expect(pm.response.text()).to.include(\"Role has been updated successfully.\");\r",
 											"});\r",
 											""
-										],
-										"type": "text/javascript"
+										]
 									}
 								},
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "407d8227-84d1-4959-9ab8-cb40f686e6d1",
+										"type": "text/javascript",
 										"exec": [
 											"//Generate random name\r",
 											"function xter(length) {\r",
@@ -1848,8 +1688,7 @@
 											"\r",
 											"\r",
 											"postman.setEnvironmentVariable(\"roleName\", xter(4));"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -1899,9 +1738,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Add permissions to role",
@@ -1912,7 +1749,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "cb21cb89-ef43-4bd2-a598-e09412cc471a",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -1920,8 +1757,7 @@
 											"pm.test(\"Body matches string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"RolePermission record exist already\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -1972,7 +1808,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3c2ce516-0b65-46e4-b89b-2b174cccc308",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -1980,8 +1816,7 @@
 											"pm.test(\"Body matches string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Duplicate records not allowed\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -2026,9 +1861,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Search Role by name",
@@ -2039,13 +1872,12 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8019b07b-3baf-4d7c-8a9b-6454be359f34",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -2082,12 +1914,9 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "User mgt",
@@ -2104,7 +1933,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "e7667da9-24c9-4594-a7ec-14237ea776ec",
 												"exec": [
 													"pm.test(\"Status code is 200\", function () {\r",
 													"    pm.response.to.have.status(200);\r",
@@ -2119,7 +1947,6 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "97ca3d03-79b4-4d17-b556-e6d475af6624",
 												"exec": [
 													"//Generate random name\r",
 													"function xter(length) {\r",
@@ -2156,7 +1983,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"contactEmail\": \"{{clientadminemail}}\",\r\n  \"contactFirstName\": \"Client\",\r\n  \"contactLastName\": \"Admin\",\r\n  \"companyName\": \"{{company}}\",\r\n  \"password\": \"P@ssw0rd\",\r\n  \"confirmPassword\": \"P@ssw0rd\"\r\n}",
+											"raw": "{\r\n  \"contactEmail\": \"{{$randomEmail}}\",\r\n  \"contactFirstName\": \"Client\",\r\n  \"contactLastName\": \"Admin\",\r\n  \"companyName\": \"{{$randomCompanyName}}\",\r\n  \"password\": \"UEBzc3cwcmQx\",\r\n  \"confirmPassword\": \"UEBzc3cwcmQx\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2186,7 +2013,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "d19893d0-181e-4f7e-8b2b-e50d10536234",
 												"exec": [
 													"pm.test(\"Status code is 400\", function () {\r",
 													"    pm.response.to.have.status(400);\r",
@@ -2214,7 +2040,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"contactEmail\": \"qclient@yopmail.com\",\r\n  \"contactFirstName\": \"Client\",\r\n  \"contactLastName\": \"Admin\",\r\n  \"companyName\": \"Qrurey\",\r\n  \"password\": \"P@ssw0rd\",\r\n  \"confirmPassword\": \"P@ssw0rd\"\r\n}",
+											"raw": "{\r\n  \"contactEmail\": \"qclient@yopmail.com\",\r\n  \"contactFirstName\": \"Client\",\r\n  \"contactLastName\": \"Admin\",\r\n  \"companyName\": \"Qrurey\",\r\n  \"password\": \"UEBzc3cwcmQx\",\r\n  \"confirmPassword\": \"UEBzc3cwcmQx\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2244,7 +2070,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "bcdfb706-8740-4ad0-b523-6ee2d87443fe",
 												"exec": [
 													"pm.test(\"Status code is 400\", function () {\r",
 													"    pm.response.to.have.status(400);\r",
@@ -2272,7 +2097,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"contactEmail\": \"qclientyopmail.com\",\r\n  \"contactFirstName\": \"Client\",\r\n  \"contactLastName\": \"Admin\",\r\n  \"companyName\": \"Qurey\",\r\n  \"password\": \"P@ssw0rd\",\r\n  \"confirmPassword\": \"P@ssw0rd\"\r\n}",
+											"raw": "{\r\n  \"contactEmail\": \"qclientyopmail.com\",\r\n  \"contactFirstName\": \"Client\",\r\n  \"contactLastName\": \"Admin\",\r\n  \"companyName\": \"Qurey\",\r\n  \"password\": \"UEBzc3cwcmQx\",\r\n  \"confirmPassword\": \"UEBzc3cwcmQx\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2302,7 +2127,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "63da9795-1cb2-4180-a7cc-fadcd002e235",
+												"type": "text/javascript",
 												"exec": [
 													"pm.test(\"Status code is 400\", function () {\r",
 													"    pm.response.to.have.status(400);\r",
@@ -2310,8 +2135,7 @@
 													"pm.test(\"Body contains string\", function () {\r",
 													"    pm.expect(pm.response.text()).to.include(\"Contact First Name must not contain number or special characters\");\r",
 													"});"
-												],
-												"type": "text/javascript"
+												]
 											}
 										}
 									],
@@ -2355,18 +2179,17 @@
 									"response": []
 								},
 								{
-									"name": "Client admin (incorrect password combination)",
+									"name": "Client admin (mismatched password)",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
-												"id": "c85558e6-1a23-47a8-b95f-e14c3881786e",
 												"exec": [
 													"pm.test(\"Status code is 400\", function () {\r",
 													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"pm.test(\"Body contains string\", function () {\r",
-													"    pm.expect(pm.response.text()).to.include(\"Password should be a minimum of 6 characters with a number, an upper case letter, a lower case and a special character\");\r",
+													"    pm.expect(pm.response.text()).to.include(\"The password and confirmation password do not match.\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -2388,7 +2211,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"contactEmail\": \"qclient@yopmail.com\",\r\n  \"contactFirstName\": \"abc\",\r\n  \"contactLastName\": \"efg\",\r\n  \"companyName\": \"Qurey\",\r\n  \"password\": \"P@sswrd\",\r\n  \"confirmPassword\": \"P@sswrd\"\r\n}",
+											"raw": "{\r\n  \"contactEmail\": \"qclient@yopmail.com\",\r\n  \"contactFirstName\": \"abc\",\r\n  \"contactLastName\": \"efg\",\r\n  \"companyName\": \"Qurey\",\r\n  \"password\": \"UEBzc3cwcmQx\",\r\n  \"confirmPassword\": \"UEBzc3cwcmQxLA==\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2413,12 +2236,11 @@
 									"response": []
 								},
 								{
-									"name": "Client admin (mismatched password)",
+									"name": "Client admin (no details)",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
-												"id": "988f219d-a547-45dd-845b-fb8353ce797a",
 												"exec": [
 													"pm.test(\"Status code is 400\", function () {\r",
 													"    pm.response.to.have.status(400);\r",
@@ -2470,9 +2292,7 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "Client User",
@@ -2483,10 +2303,12 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "023a6997-98c1-4898-a1d8-9a33dc756718",
 												"exec": [
 													"pm.test(\"Status code is 200\", function () {\r",
 													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"pm.test(\"Body contains string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"User created successfully. Email sent to user\");\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -2495,7 +2317,6 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "5de186e3-0fd9-48a9-b276-215219b94e03",
 												"exec": [
 													"//Generate random number\r",
 													"function num(length) {\r",
@@ -2542,7 +2363,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"firstName\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\",\r\n  \"email\": \"{{Email1}}\",\r\n  \"phoneNumber\": \"{{Phone}}\",\r\n  \"roleId\": 10752,\r\n  \"corporateType\": \"Corporate\",\r\n  \"corporateId\": 272\r\n}",
+											"raw": "{\r\n  \"firstName\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\",\r\n  \"email\": \"{{$randomEmail}}\",\r\n  \"phoneNumber\": \"09067543547\",\r\n  \"roleId\": 10752,\r\n  \"corporateType\": \"Corporate\",\r\n  \"corporateId\": 272\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2573,7 +2394,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "26f4e9d3-f50a-45f6-9356-b4d2b4a44e71",
+												"type": "text/javascript",
 												"exec": [
 													"pm.test(\"Status code is 400\", function () {\r",
 													"    pm.response.to.have.status(400);\r",
@@ -2582,8 +2403,7 @@
 													"pm.test(\"Body contains string\", function () {\r",
 													"    pm.expect(pm.response.text()).to.include(\"already exist\");\r",
 													"});"
-												],
-												"type": "text/javascript"
+												]
 											}
 										}
 									],
@@ -2627,9 +2447,7 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "Partner",
@@ -2640,19 +2458,18 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "8d6c501f-776d-4d2e-8dc1-b2399aad3df7",
+												"type": "text/javascript",
 												"exec": [
 													"pm.test(\"Status code is 200\", function () {\r",
 													"    pm.response.to.have.status(200);\r",
 													"});"
-												],
-												"type": "text/javascript"
+												]
 											}
 										},
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "b8a92c16-c494-481e-8e5f-ca0e0319bc9a",
+												"type": "text/javascript",
 												"exec": [
 													"//Generate random name\r",
 													"function xter(length) {\r",
@@ -2681,8 +2498,7 @@
 													"postman.setEnvironmentVariable(\"mail\", xter(6) + \"@yopmail.com\");\r",
 													"postman.setEnvironmentVariable(\"partnercode\", xter(5));\r",
 													"postman.setEnvironmentVariable(\"appname\", xter(6));"
-												],
-												"type": "text/javascript"
+												]
 											}
 										}
 									],
@@ -2701,7 +2517,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"applicationName\": \"{{appname}}\",\r\n  \"description\": \"{{$randomAbbreviation}}\",\r\n  \"firstName\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\",\r\n  \"email\": \"{{mail}}\",\r\n  \"password\": \"P@ssw0rd1\",\r\n  \"mobileNumber\": \"{{Phone}}\",\r\n  \"code\": \"{{partnercode}}\"\r\n}",
+											"raw": "{\r\n  \"applicationName\": \"{{appname}}\",\r\n  \"description\": \"{{$randomAbbreviation}}\",\r\n  \"firstName\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\",\r\n  \"email\": \"{{$randomEmail}}\",\r\n  \"password\": \"UEBzc3cwcmQx\",\r\n  \"mobileNumber\": \"{{Phone}}\",\r\n  \"code\": \"{{partnercode}}\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2726,13 +2542,9 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Get user",
@@ -2743,7 +2555,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "099da8b9-e190-4acc-adee-b838d1e57d5a",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -2751,12 +2563,21 @@
 											"pm.test(\"Body contains string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Users retrieved successfully\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -2782,7 +2603,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0fb9e0b9-5f36-4f26-a24f-3257e8f57308",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -2790,8 +2611,7 @@
 											"pm.test(\"Body contains string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"User record found\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -2833,7 +2653,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e40f29ff-80bd-438c-aa4a-dc519b4ff993",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -2841,8 +2661,7 @@
 											"pm.test(\"Body contains string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Records found\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -2873,7 +2692,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a5f7f86e-be68-446c-9f56-f3d0e4fcbd49",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -2881,8 +2700,7 @@
 											"pm.test(\"Body matches string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Users retrieved successfully\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -2918,9 +2736,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Update User",
@@ -2929,9 +2745,23 @@
 							"name": "Update User (valid details)",
 							"event": [
 								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body contains string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"User update Successful\");\r",
+											"});"
+										]
+									}
+								},
+								{
 									"listen": "prerequest",
 									"script": {
-										"id": "5d513946-c203-4cff-8ccf-4f06a2f4004f",
+										"type": "text/javascript",
 										"exec": [
 											"//Generate random name\r",
 											"function xter(length) {\r",
@@ -2958,23 +2788,7 @@
 											"postman.setEnvironmentVariable(\"Fname\", xter(6));\r",
 											"postman.setEnvironmentVariable(\"Lname\", xter(6));\r",
 											"postman.setEnvironmentVariable(\"number\", \"0803\" + num(7));"
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "test",
-									"script": {
-										"id": "8d24afde-1f12-4ae8-acfe-5a01af24d0b2",
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"pm.test(\"Body contains string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"User update Successful\");\r",
-											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -3018,9 +2832,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Enable User ",
@@ -3031,14 +2843,13 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "da355e0f-ac53-4848-9a90-06aeccf8bfe1",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											""
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -3074,9 +2885,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Disable User",
@@ -3087,7 +2896,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "888dfdb1-89ca-4e52-86e7-9becb6d015b4",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -3095,8 +2904,7 @@
 											"pm.test(\"Body contains string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"User has been deactivated successfully\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -3132,12 +2940,9 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "PROVIDER GATEWAY",
@@ -3148,7 +2953,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e7fd553f-8d51-4065-89ba-56d687ba027d",
+								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -3156,8 +2961,7 @@
 									"pm.test(\"Body contains string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"Sterling Bank\");\r",
 									"});"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
@@ -3197,7 +3001,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a2cbe76b-d3a5-4545-b70f-91ff206dbc7e",
+								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -3205,8 +3009,7 @@
 									"pm.test(\"Body contains string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"Providus\");\r",
 									"});"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
@@ -3247,8 +3050,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Businesses Account",
@@ -3259,7 +3061,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6ed04a20-67a8-4c83-bad9-66f24f3b59b3",
+								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -3267,8 +3069,7 @@
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"Water\");\r",
 									"});"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
@@ -3303,8 +3104,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Corporates",
@@ -3318,13 +3118,12 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "9c9de3d6-5039-483c-b1f5-6e6ffa71ff04",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -3371,7 +3170,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ce839779-0b61-4093-81e0-49266f2e35a9",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
@@ -3379,8 +3178,7 @@
 											"pm.test(\"Body contains string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Corporate name is required\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -3421,9 +3219,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "GetAll Corporate",
@@ -3434,13 +3230,12 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "94cc2346-31d1-46cd-ae9e-dc4a7df109b3",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -3475,9 +3270,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Get Corporate by ID",
@@ -3488,13 +3281,12 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7db6f619-606f-4e9a-b53a-d962723faa82",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -3541,16 +3333,15 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "246b027c-4a8f-4a83-89ae-044f0d06864a",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {\r",
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(pm.response.text()).to.include(\"Corporate is required\");\r",
+											"    pm.expect(pm.response.text()).to.include(\"Corporate id is required\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -3591,9 +3382,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Number of banks per corporate",
@@ -3604,13 +3393,12 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6a0df1c1-b960-4cbc-b616-dc5526e18d93",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -3645,9 +3433,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Transaction Count per Corporate",
@@ -3675,9 +3461,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Update Corporate",
@@ -3688,13 +3472,12 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "dfbbf025-3530-4f96-a94a-a4c9bfee5211",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -3704,7 +3487,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwczovL3Nzby50ZXN0LnZnZ2Rldi5jb20vaWRlbnRpdHkiLCJhdWQiOiJodHRwczovL3Nzby50ZXN0LnZnZ2Rldi5jb20vaWRlbnRpdHkvcmVzb3VyY2VzIiwiZXhwIjoxNTk0MTU4NTcwLCJuYmYiOjE1OTQxNTQ5NzAsImNsaWVudF9pZCI6InZpZ2lwYXkub3JiaXQiLCJzY29wZSI6WyJlbWFpbCIsImlkZW50aXR5LXNlcnZlci1hcGkiLCJvcGVuaWQiLCJwcm9maWxlIiwicm9sZXMiXSwic3ViIjoiMzkxMmFiNzQtZGU0MC00ZmFkLTgyZjAtNTA3ZjJiOTY0NWQ1IiwiYXV0aF90aW1lIjoxNTk0MTU0OTcwLCJpZHAiOiJpZHNydiIsInByZWZlcnJlZF91c2VybmFtZSI6InVkZW1lLmJhc3NleUB2ZW50dXJlZ2FyZGVuZ3JvdXAuY29tIiwiZW1haWwiOiJ1ZGVtZS5iYXNzZXlAdmVudHVyZWdhcmRlbmdyb3VwLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjoidHJ1ZSIsInBob25lX251bWJlciI6IjA4MTI2NTE3NzEwIiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjoiZmFsc2UiLCJ2YXRjb2xsZWN0LnJvbGUiOlsidmdnX3VzZXIiLCJBZG1pbmlzdHJhdG9yIl0sImFwcGxpY2F0aW9uIjpbInZhdGNvbGxlY3QiLCJzc291aSIsIlZHR19BUEkxRENGM1ZWM0o1MFQiLCJ3ZWIuZWJpcHMudXNlciIsInN3ZXJ2ZXBheSIsInZpZ2lwYXkub3JiaXQiXSwic3NvdWkucm9sZSI6InZnZ19hZG1pbiIsIndlYi5lYmlwcy51c2VyLnJvbGUiOlsiRUJJUFNfQ29ycG9yYXRlIiwiY2xpZW50dXNlciJdLCJnaXZlbl9uYW1lIjoiVWRlbWUiLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJzd2VydmVwYXkucm9sZSI6WyJTd2VydmVwYXlBZG1pbiIsInZnZ19hZG1pbiIsIkNwQWRtaW4iXSwidmlnaXBheS5vcmJpdC5yb2xlIjoidmdnX2FkbWluIiwiYW1yIjpbInBhc3N3b3JkIl19.JNxjh-MWYXZFL3uNDyO1Wsy9u39NT8KKjBsblW2fycG_bMRVdTy8vQ3sH0csLHdhuY7AiVv1rJPFn4kO5gFzzQO0VsuU6e1ehlh30sHT1VtRkWVDEq-L3Xtw7LOBF7aJRH0vFfFPabnAzB_QlYOaEiXXoSfja4aIs_NxPpOr1L-K8_dMDH8Inwac7SiIzPLyr1jqhXA0SyqR7d1lgMDLtveVGgjrILZKxMnBJoU4bbjcFXIYnpKf85lJnzrKQDjepJQEsDm0GdxaEk1e4bAszCEU397WPvDiMCbEWvC3jclQ2l-Y0J9WwLRWZCVF8esgxW8iOez4Nshe7nip4d_i_A",
+											"value": "{{VGGAdminToken}}",
 											"type": "string"
 										}
 									]
@@ -3733,12 +3516,65 @@
 							},
 							"response": []
 						}
+					]
+				},
+				{
+					"name": "Top 5 corporates by transaction",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"const body = JSON.parse(responseBody);\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(body.responseData.top5Corps[0].name).to.eql(\"Crossroad\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(body.responseData.top5Corps[0].corporateId).to.eql(272);\r",
+									"});\r",
+									"\r",
+									"tests[\"Body returns\" + \"   \" + body.responseData.length + \"   \" + \"corporate\"] = true"
+								]
+							}
+						}
 					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{VGGAdminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://orbitadmin.test.vggdev.com/api/Corporates/Top5CorpsByTxns",
+							"protocol": "https",
+							"host": [
+								"orbitadmin",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"Corporates",
+								"Top5CorpsByTxns"
+							]
+						}
+					},
+					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Payment channel",
@@ -3749,7 +3585,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "2bda806f-9bae-4f10-80ef-b908155accbe",
+								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -3758,14 +3594,20 @@
 									"pm.test(\"Body contains string\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"Banks\");",
 									"});"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{VGGAdminToken}}",
+									"type": "string"
+								}
+							]
 						},
 						"method": "GET",
 						"header": [],
@@ -3783,60 +3625,12 @@
 					"response": []
 				},
 				{
-					"name": "Create payment channel",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "53402178-d485-40ae-93c6-fc287ee8dbfd",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"Payment channel created successfully\");",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"{{$randomFileName}}\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{orbitadminurl}}/api/PaymentChannels/Create",
-							"host": [
-								"{{orbitadminurl}}"
-							],
-							"path": [
-								"api",
-								"PaymentChannels",
-								"Create"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Create payment channel with no details",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "fd95c244-389e-41fa-8a31-5a7c450669a2",
+								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
@@ -3844,14 +3638,20 @@
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"Name must be between 6 and 25 char\");\r",
 									"});"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{VGGAdminToken}}",
+									"type": "string"
+								}
+							]
 						},
 						"method": "POST",
 						"header": [],
@@ -3884,7 +3684,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d31122a0-bc87-4fb2-9905-4f02a334a055",
+								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -3893,14 +3693,20 @@
 									"pm.test(\"Body matches string\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"Payment Channel activated successfully\");",
 									"});"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{VGGAdminToken}}",
+									"type": "string"
+								}
+							]
 						},
 						"method": "POST",
 						"header": [],
@@ -3930,23 +3736,29 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "163899fa-7c88-40a4-b1b5-5e8b424eb886",
+								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 400\", function () {",
-									"    pm.response.to.have.status(400);",
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
 									"});",
 									"",
 									"pm.test(\"Body matches string\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"Payment Provider does not exist\");",
 									"});"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{VGGAdminToken}}",
+									"type": "string"
+								}
+							]
 						},
 						"method": "POST",
 						"header": [],
@@ -3976,7 +3788,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0044087e-0ba2-43aa-98f6-5563131bd0f3",
+								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -3985,14 +3797,20 @@
 									"pm.test(\"Body matches string\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"Payment channel deactivated successfully\");",
 									"});"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{VGGAdminToken}}",
+									"type": "string"
+								}
+							]
 						},
 						"method": "POST",
 						"header": [],
@@ -4019,9 +3837,6 @@
 				{
 					"name": "Get payment channel by id",
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -4048,9 +3863,23 @@
 					"name": "Update payment channel",
 					"event": [
 						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Payment provider updated successfully\");\r",
+									"});"
+								]
+							}
+						},
+						{
 							"listen": "prerequest",
 							"script": {
-								"id": "56ba8b86-284b-4b4c-83f9-03771437fdfb",
+								"type": "text/javascript",
 								"exec": [
 									"//Generate random name\r",
 									"function xter(length) {\r",
@@ -4066,26 +3895,20 @@
 									"\r",
 									"\r",
 									"postman.setEnvironmentVariable(\"channelname\", xter(6));"
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "c13861ea-e19a-43a1-a390-b63d9488aace",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{VGGAdminToken}}",
+									"type": "string"
+								}
+							]
 						},
 						"method": "PUT",
 						"header": [],
@@ -4118,23 +3941,29 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "93722952-e825-40fe-a323-0430890edc49",
+								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"Error ocurred: Invalid paymentchannel Id\");",
+									"    pm.expect(pm.response.text()).to.include(\"Swift is in use\");",
 									"});",
 									"",
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
 									"});"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{VGGAdminToken}}",
+									"type": "string"
+								}
+							]
 						},
 						"method": "PUT",
 						"header": [],
@@ -4161,8 +3990,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Dashboard Report",
@@ -4176,7 +4004,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "471e51c1-adb4-45c9-81b5-5b29b2e1bd30",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -4187,8 +4015,7 @@
 											"tests[\"Body returns\" + \"   \" + body.responseData.length + \"   \" + \"hours\"] = true\r",
 											"\r",
 											""
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -4206,18 +4033,19 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://orbitadmin.test.vggdev.comapi/DashboardReport/PartnertnxbyHours/32283/Hourly",
+									"raw": "https://orbitadmin.test.vggdev.com/api/DashboardReport/PartnertnxbyHours/10108/Hourly",
 									"protocol": "https",
 									"host": [
 										"orbitadmin",
 										"test",
 										"vggdev",
-										"comapi"
+										"com"
 									],
 									"path": [
+										"api",
 										"DashboardReport",
 										"PartnertnxbyHours",
-										"32283",
+										"10108",
 										"Hourly"
 									]
 								}
@@ -4230,7 +4058,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f0233612-92bb-4cd0-b1af-34115e522585",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -4238,9 +4066,8 @@
 											"\r",
 											"\r",
 											"const body = JSON.parse(responseBody);\r",
-											"tests[\"Body returns\" + \"   \" + body.responseData.length + \"   \" + \"days\"] = true"
-										],
-										"type": "text/javascript"
+											"tests[\"Body returns\" + \"   \" + body.responseData.top5Corps.length + \"   \" + \"days\"] = true"
+										]
 									}
 								}
 							],
@@ -4258,7 +4085,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://orbitadmin.test.vggdev.com/api/DashboardReport/partnertnxbyWeekly/32283/weekly",
+									"raw": "https://orbitadmin.test.vggdev.com/api/DashboardReport/partnertnxbyWeekly/10108/weekly",
 									"protocol": "https",
 									"host": [
 										"orbitadmin",
@@ -4270,7 +4097,7 @@
 										"api",
 										"DashboardReport",
 										"partnertnxbyWeekly",
-										"32283",
+										"10108",
 										"weekly"
 									]
 								}
@@ -4283,21 +4110,20 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e9947248-4459-4b28-b7ed-3901190d5d4f",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"const body = JSON.parse(responseBody);\r",
 											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(body.responseData[0].name).to.eql(\"January\");\r",
+											"    pm.expect(body.responseData.top5Corps[0].name).to.eql(\"January\");\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(body.responseData[0].volume).to.eql(0.0);\r",
-											"});\r",
+											"// //pm.test(\"Body matches string\", function () {\r",
+											"//     //pm.expect(body.responseData.top5Corps[0].volume).to.eql(0.0);\r",
+											"// });\r",
 											"\r",
-											"tests[\"Body returns\" + \"   \" + body.responseData.length + \"   \" + \"months\"] = true"
+											"tests[\"Body returns\" + \"   \" + body.responseData.top5Corps.length + \"   \" + \"months\"] = true"
 										],
 										"type": "text/javascript"
 									}
@@ -4317,7 +4143,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://orbitadmin.test.vggdev.com/api/DashboardReport/PartnertnxbyMonthly/32283/monthly",
+									"raw": "https://orbitadmin.test.vggdev.com/api/DashboardReport/PartnertnxbyMonthly/10108/monthly",
 									"protocol": "https",
 									"host": [
 										"orbitadmin",
@@ -4329,16 +4155,14 @@
 										"api",
 										"DashboardReport",
 										"PartnertnxbyMonthly",
-										"32283",
+										"10108",
 										"monthly"
 									]
 								}
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Corporate txn status",
@@ -4349,7 +4173,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3a396d41-e1df-436c-a6c3-dde76766abf0",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -4358,8 +4182,7 @@
 											"\r",
 											"const body = JSON.parse(responseBody);\r",
 											"tests[\"Body returns\" + \"   \" + body.responseData.length + \"   \" + \"hours\"] = true"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -4402,7 +4225,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "fb848a8b-63c7-427b-a228-1a8bc38f17de",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -4411,8 +4234,7 @@
 											"\r",
 											"const body = JSON.parse(responseBody);\r",
 											"tests[\"Body returns\" + \"   \" + body.responseData.length + \"   \" + \"days\"] = true"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -4455,82 +4277,22 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c4d0ec7a-4550-46a3-8c59-c60be12642b8",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"const body = JSON.parse(responseBody);\r",
 											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(body.responseData[0].name).to.eql(\"January\");\r",
+											"    pm.expect(body.responseData.top5Corps[0].name).to.eql(\"January\");\r",
 											"});\r",
 											"\r",
 											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(body.responseData[10].volume).to.eql(2385.00);\r",
+											"    pm.expect(body.responseData.top5Corps[0].volume).to.eql(0.0);\r",
 											"});\r",
 											"\r",
-											"tests[\"Body returns\" + \"   \" + body.responseData.length + \"   \" + \"months\"] = true"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{VGGAdminToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://orbitadmin.test.vggdev.com/api/DashboardReport/CorporatetnxbyMonthly/33314/Monthly",
-									"protocol": "https",
-									"host": [
-										"orbitadmin",
-										"test",
-										"vggdev",
-										"com"
-									],
-									"path": [
-										"api",
-										"DashboardReport",
-										"CorporatetnxbyMonthly",
-										"33314",
-										"Monthly"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "txn status by month Copy",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "846bd737-74a8-4ffb-9263-a12bd337fc94",
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"const body = JSON.parse(responseBody);\r",
-											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(body.responseData[0].name).to.eql(\"January\");\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Body matches string\", function () {\r",
-											"    pm.expect(body.responseData[10].volume).to.eql(2385.00);\r",
-											"});\r",
-											"\r",
-											"tests[\"Body returns\" + \"   \" + body.responseData.length + \"   \" + \"months\"] = true"
-										],
-										"type": "text/javascript"
+											"tests[\"Body returns\" + \"   \" + body.responseData.top5Corps.length + \"   \" + \"months\"] = true"
+										]
 									}
 								}
 							],
@@ -4567,12 +4329,59 @@
 							},
 							"response": []
 						}
+					]
+				},
+				{
+					"name": "Total Transaction count by status Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"const body = JSON.parse(responseBody);\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(body.responseData.txnByStatus[3].volume).to.eql(422591.00);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{VGGAdminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://orbitadmin.test.vggdev.com/api/DashboardReport/TransactionsByStatus",
+							"protocol": "https",
+							"host": [
+								"orbitadmin",
+								"test",
+								"vggdev",
+								"com"
+							],
+							"path": [
+								"api",
+								"DashboardReport",
+								"TransactionsByStatus"
+							]
+						}
+					},
+					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Audit Logs",
@@ -4586,7 +4395,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "be46d089-82ad-419b-9069-6860f3d2878b",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -4594,8 +4403,7 @@
 											"pm.test(\"Body matches string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Record(s) retrieved successfully.\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -4650,7 +4458,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f7c6149b-80f6-4885-95c5-11d1ea699a91",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -4658,8 +4466,7 @@
 											"pm.test(\"Body matches string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Record(s) retrieved successfully.\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -4710,7 +4517,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "5c002428-9f2c-4a69-bb16-62e0900ae3a4",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -4718,8 +4525,7 @@
 											"pm.test(\"Body matches string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Record(s) retrieved successfully.\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -4786,7 +4592,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0467e87d-86ee-455d-a0ba-3a8bd83d1e97",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -4794,8 +4600,7 @@
 											"pm.test(\"Body matches string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Record(s) retrieved successfully.\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -4813,7 +4618,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://orbitadmin.test.vggdev.com/api/UserAuditsLog/LogsByRole?role=clientuser&startDate=02-12-2020&endDate=02-12-2020&pageNumber=1&pageSize=10",
+									"raw": "https://orbitadmin.test.vggdev.com/api/UserAuditsLog/LogsByRole?role=clientadmin&startDate=02-12-2020&endDate=02-12-2020&pageNumber=1&pageSize=10",
 									"protocol": "https",
 									"host": [
 										"orbitadmin",
@@ -4829,7 +4634,7 @@
 									"query": [
 										{
 											"key": "role",
-											"value": "clientuser"
+											"value": "clientadmin"
 										},
 										{
 											"key": "startDate",
@@ -4858,7 +4663,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "08e4e41f-62c1-4547-94c0-64c0d74d93d6",
+										"type": "text/javascript",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -4866,8 +4671,7 @@
 											"pm.test(\"Body matches string\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"Record(s) retrieved successfully.\");\r",
 											"});"
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
 							],
@@ -4923,14 +4727,90 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Get All Logs by Date Range",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body contains string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Record(s) retrieved successfully.\");\r",
+											"});\r",
+											""
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{VGGAdminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"startDate\": \"19-11-2020\",\r\n  \"endDate\": \"20-11-2020\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://orbitadmin.test.vggdev.com/api/UserAuditsLog/AllLogsByDateRange?startDate=14-12-2020&endDate=14-12-2020&pageNumber=1&pageSize=10",
+									"protocol": "https",
+									"host": [
+										"orbitadmin",
+										"test",
+										"vggdev",
+										"com"
+									],
+									"path": [
+										"api",
+										"UserAuditsLog",
+										"AllLogsByDateRange"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": "14-12-2020"
+										},
+										{
+											"key": "endDate",
+											"value": "14-12-2020"
+										},
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
